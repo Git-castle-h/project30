@@ -1,0 +1,860 @@
+[18:39:06][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[18:39:06][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Tue Mar 14 18:39:06 KST 2023]; root of context hierarchy
+[18:39:06][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[18:39:07][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[18:39:07][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@6b9a1205]
+[18:39:07][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:39:07][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[18:39:07][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:39:07][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:39:07][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:39:07][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:39:07][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:39:07][ERROR](ContextLoader.java:308)-Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/spring/action-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis/model/modelConfig.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberVO'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.myspring.pro27.vo.MemberVO
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:567)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:385)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:284)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4764)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5222)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1393)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1383)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:916)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1393)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1383)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:916)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:265)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:430)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:930)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:772)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:347)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:478)
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis/model/modelConfig.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberVO'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.myspring.pro27.vo.MemberVO
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:380)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:295)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 42 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberVO'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.myspring.pro27.vo.MemberVO
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:106)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:89)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:374)
+	... 45 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberVO'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.myspring.pro27.vo.MemberVO
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.typeAliasesElement(XMLConfigBuilder.java:127)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:96)
+	... 47 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.myspring.pro27.vo.MemberVO
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:188)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:87)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:250)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.typeAliasesElement(XMLConfigBuilder.java:120)
+	... 48 more
+[18:41:30][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[18:41:30][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Tue Mar 14 18:41:30 KST 2023]; root of context hierarchy
+[18:41:30][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[18:41:30][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[18:41:31][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@6b9a1205]
+[18:41:31][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:41:31][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[18:41:31][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:41:31][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:41:31][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:41:31][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:41:31][DEBUG](Slf4jImpl.java:43)-Parsed configuration file: 'class path resource [mybatis/model/modelConfig.xml]'
+[18:41:32][DEBUG](Slf4jImpl.java:43)-Created connection 1242584406.
+[18:41:32][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[18:41:32][DEBUG](Slf4jImpl.java:43)-Parsed mapper file: 'file [D:\eclipse\eclipse_2021_06\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\pro27\WEB-INF\classes\mybatis\mappers\member.xml]'
+[18:41:32][INFO ](ContextLoader.java:302)-Root WebApplicationContext: initialization completed in 2000 ms
+[18:41:32][INFO ](FrameworkServlet.java:444)-FrameworkServlet 'appServlet': initialization started
+[18:41:32][INFO ](AbstractApplicationContext.java:495)-Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:41:32 KST 2023]; parent: Root WebApplicationContext
+[18:41:32][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+[18:41:33][INFO ](ClassPathScanningCandidateComponentProvider.java:202)-JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[18:41:33][INFO ](ClassPathScanningCandidateComponentProvider.java:210)-JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[18:41:34][INFO ](AutowiredAnnotationBeanPostProcessor.java:139)-JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[18:41:34][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@467a2584]
+[18:41:34][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4e030feb: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25
+[18:41:34][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.myspring.pro27.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+[18:41:34][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/idOverlapped.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.myspring.pro27.member.controller.MemberControllerImpl.idOverlapped(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:41:34][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/listMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.listMember(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:41:34][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modIntro.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modIntro(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:41:34][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:41:34][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/addMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.addMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:41:34][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/removeMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.removeMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:41:34][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/updateMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.updateMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:41:34][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modError.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:41:34][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/searchMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.searchMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:41:34][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/memberForm.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.memberForm(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:41:34][INFO ](AbstractUrlHandlerMapping.java:314)-Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[18:41:34][INFO ](FrameworkServlet.java:463)-FrameworkServlet 'appServlet': initialization completed in 2250 ms
+[18:41:57][INFO ](HomeController.java:27)-Welcome home! The client locale is ko_KR.
+[18:42:05][INFO ](MemberControllerImpl.java:43)-info ·¹º§ : viewName = /listMember
+[18:42:05][DEBUG](Slf4jImpl.java:43)-Creating a new SqlSession
+[18:42:05][DEBUG](Slf4jImpl.java:43)-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5fa9360b] was not registered for synchronization because synchronization is not active
+[18:42:06][DEBUG](DataSourceUtils.java:110)-Fetching JDBC Connection from DataSource
+[18:42:06][DEBUG](Slf4jImpl.java:43)-Checked out connection 1242584406 from pool.
+[18:42:06][DEBUG](Slf4jImpl.java:43)-JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556] will not be managed by Spring
+[18:42:06][DEBUG](Slf4jImpl.java:43)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[18:42:06][DEBUG](Slf4jImpl.java:43)-==>  Preparing: select * from t_member order by joinDate desc 
+[18:42:06][DEBUG](Slf4jImpl.java:43)-==> Parameters: 
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==    Columns: ID, PWD, NAME, EMAIL, JOINDATE
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: aaaaaaaaa, nbbbbbbb, ³­°ü, happy@naver.com, 2023-03-08 16:52:36.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: asdf, asfd, sadf, qwer@email.com, 2023-03-08 13:08:08.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: who, doctor, Dr.who, Dr.who@tardis.net, 2023-03-08 02:35:00.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: m2, 1234, ¹Ú±è·Ê, m2@test.com, 2023-03-07 02:40:51.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: m4, 1234, Àü±Ý·Ê, m4@test.com, 2023-03-07 02:40:51.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: m1, 1234, ¹Ú±æµ¿, m1@test.com, 2023-03-07 02:40:51.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: Zap, Zap, Â¬±æµ¿, hong@test.com, 2023-03-07 01:54:16.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: random, random, ±è·£´ý, random@test.com, 2023-03-03 15:56:03.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: lee, 1234, ÀÌ¼ø½Å, lee@test.com, 2023-02-20 10:07:03.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: hong, 1234, È«±æµ¿, hong@test.com, 2023-02-20 10:07:03.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: JooJake, lovesSeongHyeok, ÁÖÃ¢Çö, AKADIN@naver.com, 1995-01-01 00:00:00.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: ki, 123, ±â¼º¿ë, ki@test.com, 1995-01-01 00:00:00.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: son, 123, ¼ÕÈï¹Î, son@test.com, 1995-01-01 00:00:00.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-<==        Row: jake, willLoveSeongHyeok, ÁÖÃ¢Çö, JooJake@test.com, 1995-01-01 00:00:00.0
+[18:42:06][DEBUG](Slf4jImpl.java:43)-Committing JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[18:42:06][DEBUG](Slf4jImpl.java:43)-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5fa9360b]
+[18:42:06][DEBUG](DataSourceUtils.java:332)-Returning JDBC Connection to DataSource
+[18:42:06][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[18:44:39][INFO ](AbstractApplicationContext.java:1020)-Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:41:32 KST 2023]; parent: Root WebApplicationContext
+[18:44:39][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4e030feb: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25
+[18:44:39][INFO ](AbstractApplicationContext.java:1020)-Closing Root WebApplicationContext: startup date [Tue Mar 14 18:41:30 KST 2023]; root of context hierarchy
+[18:44:39][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:44:41][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[18:44:41][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Tue Mar 14 18:44:41 KST 2023]; root of context hierarchy
+[18:44:41][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[18:44:42][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[18:44:42][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@22581ed2]
+[18:44:42][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5cf85b89: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:44:42][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[18:44:42][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:44:42][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:44:42][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:44:42][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:44:42][DEBUG](Slf4jImpl.java:43)-Parsed configuration file: 'class path resource [mybatis/model/modelConfig.xml]'
+[18:44:42][DEBUG](Slf4jImpl.java:43)-Created connection 854548671.
+[18:44:42][DEBUG](Slf4jImpl.java:43)-Returned connection 854548671 to pool.
+[18:44:42][DEBUG](Slf4jImpl.java:43)-Parsed mapper file: 'file [D:\eclipse\eclipse_2021_06\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\pro27\WEB-INF\classes\mybatis\mappers\member.xml]'
+[18:44:42][INFO ](ContextLoader.java:302)-Root WebApplicationContext: initialization completed in 1141 ms
+[18:44:42][INFO ](FrameworkServlet.java:444)-FrameworkServlet 'appServlet': initialization started
+[18:44:42][INFO ](AbstractApplicationContext.java:495)-Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:44:42 KST 2023]; parent: Root WebApplicationContext
+[18:44:42][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+[18:44:43][INFO ](ClassPathScanningCandidateComponentProvider.java:202)-JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[18:44:43][INFO ](ClassPathScanningCandidateComponentProvider.java:210)-JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[18:44:43][INFO ](AutowiredAnnotationBeanPostProcessor.java:139)-JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[18:44:43][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@771de820]
+[18:44:43][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@31471f47: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5cf85b89
+[18:44:43][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.myspring.pro27.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+[18:44:43][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/idOverlapped.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.myspring.pro27.member.controller.MemberControllerImpl.idOverlapped(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:43][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/listMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.listMember(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:43][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modIntro.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modIntro(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:43][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:43][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/addMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.addMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:43][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/removeMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.removeMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:43][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/updateMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.updateMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:43][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modError.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:43][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/searchMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.searchMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:43][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/memberForm.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.memberForm(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:43][INFO ](AbstractUrlHandlerMapping.java:314)-Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[18:44:44][INFO ](FrameworkServlet.java:463)-FrameworkServlet 'appServlet': initialization completed in 1198 ms
+[18:44:49][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[18:44:49][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Tue Mar 14 18:44:49 KST 2023]; root of context hierarchy
+[18:44:49][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[18:44:49][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[18:44:49][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@6b9a1205]
+[18:44:49][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:44:49][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[18:44:49][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:44:49][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:44:49][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:44:49][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:44:50][DEBUG](Slf4jImpl.java:43)-Parsed configuration file: 'class path resource [mybatis/model/modelConfig.xml]'
+[18:44:50][DEBUG](Slf4jImpl.java:43)-Created connection 1242584406.
+[18:44:50][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[18:44:50][DEBUG](Slf4jImpl.java:43)-Parsed mapper file: 'file [D:\eclipse\eclipse_2021_06\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\pro27\WEB-INF\classes\mybatis\mappers\member.xml]'
+[18:44:50][INFO ](ContextLoader.java:302)-Root WebApplicationContext: initialization completed in 1300 ms
+[18:44:50][INFO ](FrameworkServlet.java:444)-FrameworkServlet 'appServlet': initialization started
+[18:44:50][INFO ](AbstractApplicationContext.java:495)-Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:44:50 KST 2023]; parent: Root WebApplicationContext
+[18:44:50][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+[18:44:52][INFO ](ClassPathScanningCandidateComponentProvider.java:202)-JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[18:44:52][INFO ](ClassPathScanningCandidateComponentProvider.java:210)-JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[18:44:52][INFO ](AutowiredAnnotationBeanPostProcessor.java:139)-JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[18:44:52][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@467a2584]
+[18:44:52][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4e030feb: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25
+[18:44:52][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.myspring.pro27.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+[18:44:52][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modError.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:52][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/listMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.listMember(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:52][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/idOverlapped.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.myspring.pro27.member.controller.MemberControllerImpl.idOverlapped(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:52][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:52][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/removeMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.removeMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:52][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/memberForm.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.memberForm(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:52][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/searchMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.searchMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:52][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modIntro.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modIntro(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:52][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/addMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.addMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:52][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/updateMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.updateMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:44:52][INFO ](AbstractUrlHandlerMapping.java:314)-Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[18:44:52][INFO ](FrameworkServlet.java:463)-FrameworkServlet 'appServlet': initialization completed in 2074 ms
+[18:44:52][INFO ](MemberControllerImpl.java:43)-info ·¹º§ : viewName = /member/listMember
+[18:44:52][INFO ](MemberControllerImpl.java:43)-info ·¹º§ : viewName = /member/listMember
+[18:44:53][DEBUG](Slf4jImpl.java:43)-Creating a new SqlSession
+[18:44:53][DEBUG](Slf4jImpl.java:43)-Creating a new SqlSession
+[18:44:53][DEBUG](Slf4jImpl.java:43)-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@693cddf] was not registered for synchronization because synchronization is not active
+[18:44:53][DEBUG](Slf4jImpl.java:43)-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2aadffa1] was not registered for synchronization because synchronization is not active
+[18:44:53][DEBUG](DataSourceUtils.java:110)-Fetching JDBC Connection from DataSource
+[18:44:53][DEBUG](DataSourceUtils.java:110)-Fetching JDBC Connection from DataSource
+[18:44:53][DEBUG](Slf4jImpl.java:43)-Checked out connection 1242584406 from pool.
+[18:44:53][DEBUG](Slf4jImpl.java:43)-JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556] will not be managed by Spring
+[18:44:53][DEBUG](Slf4jImpl.java:43)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[18:44:53][DEBUG](Slf4jImpl.java:43)-==>  Preparing: select * from t_member order by joinDate desc 
+[18:44:53][DEBUG](Slf4jImpl.java:43)-Created connection 814846270.
+[18:44:53][DEBUG](Slf4jImpl.java:43)-JDBC Connection [oracle.jdbc.driver.T4CConnection@3091913e] will not be managed by Spring
+[18:44:53][DEBUG](Slf4jImpl.java:43)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@3091913e]
+[18:44:53][DEBUG](Slf4jImpl.java:43)-==>  Preparing: select * from t_member order by joinDate desc 
+[18:44:53][DEBUG](Slf4jImpl.java:43)-==> Parameters: 
+[18:44:53][DEBUG](Slf4jImpl.java:43)-==> Parameters: 
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==    Columns: ID, PWD, NAME, EMAIL, JOINDATE
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==    Columns: ID, PWD, NAME, EMAIL, JOINDATE
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: aaaaaaaaa, nbbbbbbb, ³­°ü, happy@naver.com, 2023-03-08 16:52:36.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: aaaaaaaaa, nbbbbbbb, ³­°ü, happy@naver.com, 2023-03-08 16:52:36.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: asdf, asfd, sadf, qwer@email.com, 2023-03-08 13:08:08.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: asdf, asfd, sadf, qwer@email.com, 2023-03-08 13:08:08.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: who, doctor, Dr.who, Dr.who@tardis.net, 2023-03-08 02:35:00.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: m2, 1234, ¹Ú±è·Ê, m2@test.com, 2023-03-07 02:40:51.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: who, doctor, Dr.who, Dr.who@tardis.net, 2023-03-08 02:35:00.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: m4, 1234, Àü±Ý·Ê, m4@test.com, 2023-03-07 02:40:51.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: m2, 1234, ¹Ú±è·Ê, m2@test.com, 2023-03-07 02:40:51.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: m1, 1234, ¹Ú±æµ¿, m1@test.com, 2023-03-07 02:40:51.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: m4, 1234, Àü±Ý·Ê, m4@test.com, 2023-03-07 02:40:51.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: Zap, Zap, Â¬±æµ¿, hong@test.com, 2023-03-07 01:54:16.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: m1, 1234, ¹Ú±æµ¿, m1@test.com, 2023-03-07 02:40:51.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: random, random, ±è·£´ý, random@test.com, 2023-03-03 15:56:03.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: Zap, Zap, Â¬±æµ¿, hong@test.com, 2023-03-07 01:54:16.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: lee, 1234, ÀÌ¼ø½Å, lee@test.com, 2023-02-20 10:07:03.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: random, random, ±è·£´ý, random@test.com, 2023-03-03 15:56:03.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: hong, 1234, È«±æµ¿, hong@test.com, 2023-02-20 10:07:03.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: lee, 1234, ÀÌ¼ø½Å, lee@test.com, 2023-02-20 10:07:03.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: hong, 1234, È«±æµ¿, hong@test.com, 2023-02-20 10:07:03.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: JooJake, lovesSeongHyeok, ÁÖÃ¢Çö, AKADIN@naver.com, 1995-01-01 00:00:00.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: ki, 123, ±â¼º¿ë, ki@test.com, 1995-01-01 00:00:00.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: JooJake, lovesSeongHyeok, ÁÖÃ¢Çö, AKADIN@naver.com, 1995-01-01 00:00:00.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: son, 123, ¼ÕÈï¹Î, son@test.com, 1995-01-01 00:00:00.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: ki, 123, ±â¼º¿ë, ki@test.com, 1995-01-01 00:00:00.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: jake, willLoveSeongHyeok, ÁÖÃ¢Çö, JooJake@test.com, 1995-01-01 00:00:00.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: son, 123, ¼ÕÈï¹Î, son@test.com, 1995-01-01 00:00:00.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-<==        Row: jake, willLoveSeongHyeok, ÁÖÃ¢Çö, JooJake@test.com, 1995-01-01 00:00:00.0
+[18:44:53][DEBUG](Slf4jImpl.java:43)-Committing JDBC Connection [oracle.jdbc.driver.T4CConnection@3091913e]
+[18:44:53][DEBUG](Slf4jImpl.java:43)-Committing JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[18:44:53][DEBUG](Slf4jImpl.java:43)-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2aadffa1]
+[18:44:53][DEBUG](Slf4jImpl.java:43)-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@693cddf]
+[18:44:53][DEBUG](DataSourceUtils.java:332)-Returning JDBC Connection to DataSource
+[18:44:53][DEBUG](DataSourceUtils.java:332)-Returning JDBC Connection to DataSource
+[18:44:53][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[18:44:53][DEBUG](Slf4jImpl.java:43)-Returned connection 814846270 to pool.
+[18:45:26][INFO ](AbstractApplicationContext.java:1020)-Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:44:50 KST 2023]; parent: Root WebApplicationContext
+[18:45:26][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4e030feb: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25
+[18:45:26][INFO ](AbstractApplicationContext.java:1020)-Closing Root WebApplicationContext: startup date [Tue Mar 14 18:44:49 KST 2023]; root of context hierarchy
+[18:45:26][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:45:28][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[18:45:28][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Tue Mar 14 18:45:28 KST 2023]; root of context hierarchy
+[18:45:28][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[18:45:28][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[18:45:28][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@7942115e]
+[18:45:28][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@539716b0: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:45:28][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[18:45:28][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:45:28][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:45:28][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:45:28][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:45:28][DEBUG](Slf4jImpl.java:43)-Parsed configuration file: 'class path resource [mybatis/model/modelConfig.xml]'
+[18:45:29][DEBUG](Slf4jImpl.java:43)-Created connection 1202384645.
+[18:45:29][DEBUG](Slf4jImpl.java:43)-Returned connection 1202384645 to pool.
+[18:45:29][DEBUG](Slf4jImpl.java:43)-Parsed mapper file: 'file [D:\eclipse\eclipse_2021_06\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\pro27\WEB-INF\classes\mybatis\mappers\member.xml]'
+[18:45:29][INFO ](ContextLoader.java:302)-Root WebApplicationContext: initialization completed in 1102 ms
+[18:45:29][INFO ](FrameworkServlet.java:444)-FrameworkServlet 'appServlet': initialization started
+[18:45:29][INFO ](AbstractApplicationContext.java:495)-Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:45:29 KST 2023]; parent: Root WebApplicationContext
+[18:45:29][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+[18:45:29][INFO ](ClassPathScanningCandidateComponentProvider.java:202)-JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[18:45:29][INFO ](ClassPathScanningCandidateComponentProvider.java:210)-JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[18:45:29][INFO ](AutowiredAnnotationBeanPostProcessor.java:139)-JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[18:45:29][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@6b26587]
+[18:45:29][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6b4cf084: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@539716b0
+[18:45:29][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.myspring.pro27.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+[18:45:29][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/modError.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:45:29][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/listMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.listMember(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:45:29][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/idOverlapped.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.myspring.pro27.member.controller.MemberControllerImpl.idOverlapped(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:45:29][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/modMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:45:29][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/removeMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.removeMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:45:29][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/memberForm.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.memberForm(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:45:29][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/searchMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.searchMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:45:29][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/modIntro.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modIntro(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:45:29][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/addMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.addMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:45:29][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/updateMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.updateMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:45:30][INFO ](AbstractUrlHandlerMapping.java:314)-Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[18:45:30][INFO ](FrameworkServlet.java:463)-FrameworkServlet 'appServlet': initialization completed in 1088 ms
+[18:45:58][INFO ](AbstractApplicationContext.java:1020)-Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:45:29 KST 2023]; parent: Root WebApplicationContext
+[18:45:58][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6b4cf084: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@539716b0
+[18:45:58][INFO ](AbstractApplicationContext.java:1020)-Closing Root WebApplicationContext: startup date [Tue Mar 14 18:45:28 KST 2023]; root of context hierarchy
+[18:45:58][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@539716b0: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:46:04][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[18:46:05][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Tue Mar 14 18:46:05 KST 2023]; root of context hierarchy
+[18:46:05][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[18:46:05][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[18:46:05][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@6b9a1205]
+[18:46:05][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:46:05][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[18:46:05][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:46:05][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:46:05][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:46:05][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:46:05][DEBUG](Slf4jImpl.java:43)-Parsed configuration file: 'class path resource [mybatis/model/modelConfig.xml]'
+[18:46:06][DEBUG](Slf4jImpl.java:43)-Created connection 1242584406.
+[18:46:06][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[18:46:06][DEBUG](Slf4jImpl.java:43)-Parsed mapper file: 'file [D:\eclipse\eclipse_2021_06\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\pro27\WEB-INF\classes\mybatis\mappers\member.xml]'
+[18:46:06][INFO ](ContextLoader.java:302)-Root WebApplicationContext: initialization completed in 1298 ms
+[18:46:06][INFO ](FrameworkServlet.java:444)-FrameworkServlet 'appServlet': initialization started
+[18:46:06][INFO ](AbstractApplicationContext.java:495)-Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:46:06 KST 2023]; parent: Root WebApplicationContext
+[18:46:06][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+[18:46:07][INFO ](ClassPathScanningCandidateComponentProvider.java:202)-JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[18:46:07][INFO ](ClassPathScanningCandidateComponentProvider.java:210)-JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[18:46:07][INFO ](AutowiredAnnotationBeanPostProcessor.java:139)-JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[18:46:07][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@3c62f69a]
+[18:46:07][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1c0680b0: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25
+[18:46:08][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.myspring.pro27.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+[18:46:08][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/addMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.addMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:46:08][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modIntro.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modIntro(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:46:08][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/removeMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.removeMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:46:08][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/listMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.listMember(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:46:08][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/memberForm.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.memberForm(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:46:08][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/searchMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.searchMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:46:08][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modError.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:46:08][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/idOverlapped.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.myspring.pro27.member.controller.MemberControllerImpl.idOverlapped(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:46:08][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:46:08][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/updateMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.updateMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:46:08][INFO ](AbstractUrlHandlerMapping.java:314)-Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[18:46:08][INFO ](FrameworkServlet.java:463)-FrameworkServlet 'appServlet': initialization completed in 2125 ms
+[18:46:08][INFO ](MemberControllerImpl.java:42)-info ·¹º§ : viewName = /listMember
+[18:46:08][INFO ](MemberControllerImpl.java:42)-info ·¹º§ : viewName = /listMember
+[18:46:08][DEBUG](Slf4jImpl.java:43)-Creating a new SqlSession
+[18:46:08][DEBUG](Slf4jImpl.java:43)-Creating a new SqlSession
+[18:46:08][DEBUG](Slf4jImpl.java:43)-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2898ef82] was not registered for synchronization because synchronization is not active
+[18:46:08][DEBUG](Slf4jImpl.java:43)-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@258927c5] was not registered for synchronization because synchronization is not active
+[18:46:08][DEBUG](DataSourceUtils.java:110)-Fetching JDBC Connection from DataSource
+[18:46:08][DEBUG](DataSourceUtils.java:110)-Fetching JDBC Connection from DataSource
+[18:46:08][DEBUG](Slf4jImpl.java:43)-Checked out connection 1242584406 from pool.
+[18:46:08][DEBUG](Slf4jImpl.java:43)-JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556] will not be managed by Spring
+[18:46:08][DEBUG](Slf4jImpl.java:43)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[18:46:08][DEBUG](Slf4jImpl.java:43)-==>  Preparing: select * from t_member order by joinDate desc 
+[18:46:08][DEBUG](Slf4jImpl.java:43)-Created connection 1660855366.
+[18:46:08][DEBUG](Slf4jImpl.java:43)-JDBC Connection [oracle.jdbc.driver.T4CConnection@62fea446] will not be managed by Spring
+[18:46:08][DEBUG](Slf4jImpl.java:43)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@62fea446]
+[18:46:08][DEBUG](Slf4jImpl.java:43)-==>  Preparing: select * from t_member order by joinDate desc 
+[18:46:08][DEBUG](Slf4jImpl.java:43)-==> Parameters: 
+[18:46:08][DEBUG](Slf4jImpl.java:43)-==> Parameters: 
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==    Columns: ID, PWD, NAME, EMAIL, JOINDATE
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==    Columns: ID, PWD, NAME, EMAIL, JOINDATE
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: aaaaaaaaa, nbbbbbbb, ³­°ü, happy@naver.com, 2023-03-08 16:52:36.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: aaaaaaaaa, nbbbbbbb, ³­°ü, happy@naver.com, 2023-03-08 16:52:36.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: asdf, asfd, sadf, qwer@email.com, 2023-03-08 13:08:08.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: asdf, asfd, sadf, qwer@email.com, 2023-03-08 13:08:08.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: who, doctor, Dr.who, Dr.who@tardis.net, 2023-03-08 02:35:00.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: who, doctor, Dr.who, Dr.who@tardis.net, 2023-03-08 02:35:00.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: m2, 1234, ¹Ú±è·Ê, m2@test.com, 2023-03-07 02:40:51.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: m2, 1234, ¹Ú±è·Ê, m2@test.com, 2023-03-07 02:40:51.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: m4, 1234, Àü±Ý·Ê, m4@test.com, 2023-03-07 02:40:51.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: m4, 1234, Àü±Ý·Ê, m4@test.com, 2023-03-07 02:40:51.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: m1, 1234, ¹Ú±æµ¿, m1@test.com, 2023-03-07 02:40:51.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: m1, 1234, ¹Ú±æµ¿, m1@test.com, 2023-03-07 02:40:51.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: Zap, Zap, Â¬±æµ¿, hong@test.com, 2023-03-07 01:54:16.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: Zap, Zap, Â¬±æµ¿, hong@test.com, 2023-03-07 01:54:16.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: random, random, ±è·£´ý, random@test.com, 2023-03-03 15:56:03.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: random, random, ±è·£´ý, random@test.com, 2023-03-03 15:56:03.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: lee, 1234, ÀÌ¼ø½Å, lee@test.com, 2023-02-20 10:07:03.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: lee, 1234, ÀÌ¼ø½Å, lee@test.com, 2023-02-20 10:07:03.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: hong, 1234, È«±æµ¿, hong@test.com, 2023-02-20 10:07:03.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: hong, 1234, È«±æµ¿, hong@test.com, 2023-02-20 10:07:03.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: JooJake, lovesSeongHyeok, ÁÖÃ¢Çö, AKADIN@naver.com, 1995-01-01 00:00:00.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: JooJake, lovesSeongHyeok, ÁÖÃ¢Çö, AKADIN@naver.com, 1995-01-01 00:00:00.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: ki, 123, ±â¼º¿ë, ki@test.com, 1995-01-01 00:00:00.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: ki, 123, ±â¼º¿ë, ki@test.com, 1995-01-01 00:00:00.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: son, 123, ¼ÕÈï¹Î, son@test.com, 1995-01-01 00:00:00.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: son, 123, ¼ÕÈï¹Î, son@test.com, 1995-01-01 00:00:00.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: jake, willLoveSeongHyeok, ÁÖÃ¢Çö, JooJake@test.com, 1995-01-01 00:00:00.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-<==        Row: jake, willLoveSeongHyeok, ÁÖÃ¢Çö, JooJake@test.com, 1995-01-01 00:00:00.0
+[18:46:09][DEBUG](Slf4jImpl.java:43)-Committing JDBC Connection [oracle.jdbc.driver.T4CConnection@62fea446]
+[18:46:09][DEBUG](Slf4jImpl.java:43)-Committing JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[18:46:09][DEBUG](Slf4jImpl.java:43)-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@258927c5]
+[18:46:09][DEBUG](Slf4jImpl.java:43)-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2898ef82]
+[18:46:09][DEBUG](DataSourceUtils.java:332)-Returning JDBC Connection to DataSource
+[18:46:09][DEBUG](DataSourceUtils.java:332)-Returning JDBC Connection to DataSource
+[18:46:09][DEBUG](Slf4jImpl.java:43)-Returned connection 1660855366 to pool.
+[18:46:09][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[18:46:11][INFO ](MemberControllerImpl.java:42)-info ·¹º§ : viewName = /listMember
+[18:46:11][DEBUG](Slf4jImpl.java:43)-Creating a new SqlSession
+[18:46:11][DEBUG](Slf4jImpl.java:43)-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7882b3c3] was not registered for synchronization because synchronization is not active
+[18:46:11][DEBUG](DataSourceUtils.java:110)-Fetching JDBC Connection from DataSource
+[18:46:11][DEBUG](Slf4jImpl.java:43)-Checked out connection 1660855366 from pool.
+[18:46:11][DEBUG](Slf4jImpl.java:43)-JDBC Connection [oracle.jdbc.driver.T4CConnection@62fea446] will not be managed by Spring
+[18:46:11][DEBUG](Slf4jImpl.java:43)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@62fea446]
+[18:46:11][DEBUG](Slf4jImpl.java:43)-==>  Preparing: select * from t_member order by joinDate desc 
+[18:46:11][DEBUG](Slf4jImpl.java:43)-==> Parameters: 
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==    Columns: ID, PWD, NAME, EMAIL, JOINDATE
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: aaaaaaaaa, nbbbbbbb, ³­°ü, happy@naver.com, 2023-03-08 16:52:36.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: asdf, asfd, sadf, qwer@email.com, 2023-03-08 13:08:08.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: who, doctor, Dr.who, Dr.who@tardis.net, 2023-03-08 02:35:00.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: m2, 1234, ¹Ú±è·Ê, m2@test.com, 2023-03-07 02:40:51.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: m4, 1234, Àü±Ý·Ê, m4@test.com, 2023-03-07 02:40:51.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: m1, 1234, ¹Ú±æµ¿, m1@test.com, 2023-03-07 02:40:51.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: Zap, Zap, Â¬±æµ¿, hong@test.com, 2023-03-07 01:54:16.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: random, random, ±è·£´ý, random@test.com, 2023-03-03 15:56:03.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: lee, 1234, ÀÌ¼ø½Å, lee@test.com, 2023-02-20 10:07:03.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: hong, 1234, È«±æµ¿, hong@test.com, 2023-02-20 10:07:03.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: JooJake, lovesSeongHyeok, ÁÖÃ¢Çö, AKADIN@naver.com, 1995-01-01 00:00:00.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: ki, 123, ±â¼º¿ë, ki@test.com, 1995-01-01 00:00:00.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: son, 123, ¼ÕÈï¹Î, son@test.com, 1995-01-01 00:00:00.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-<==        Row: jake, willLoveSeongHyeok, ÁÖÃ¢Çö, JooJake@test.com, 1995-01-01 00:00:00.0
+[18:46:11][DEBUG](Slf4jImpl.java:43)-Committing JDBC Connection [oracle.jdbc.driver.T4CConnection@62fea446]
+[18:46:11][DEBUG](Slf4jImpl.java:43)-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7882b3c3]
+[18:46:11][DEBUG](DataSourceUtils.java:332)-Returning JDBC Connection to DataSource
+[18:46:11][DEBUG](Slf4jImpl.java:43)-Returned connection 1660855366 to pool.
+[18:46:12][INFO ](MemberControllerImpl.java:42)-info ·¹º§ : viewName = /listMember
+[18:46:12][DEBUG](Slf4jImpl.java:43)-Creating a new SqlSession
+[18:46:12][DEBUG](Slf4jImpl.java:43)-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4ef003d8] was not registered for synchronization because synchronization is not active
+[18:46:12][DEBUG](DataSourceUtils.java:110)-Fetching JDBC Connection from DataSource
+[18:46:12][DEBUG](Slf4jImpl.java:43)-Checked out connection 1242584406 from pool.
+[18:46:12][DEBUG](Slf4jImpl.java:43)-JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556] will not be managed by Spring
+[18:46:12][DEBUG](Slf4jImpl.java:43)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[18:46:12][DEBUG](Slf4jImpl.java:43)-==>  Preparing: select * from t_member order by joinDate desc 
+[18:46:12][DEBUG](Slf4jImpl.java:43)-==> Parameters: 
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==    Columns: ID, PWD, NAME, EMAIL, JOINDATE
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: aaaaaaaaa, nbbbbbbb, ³­°ü, happy@naver.com, 2023-03-08 16:52:36.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: asdf, asfd, sadf, qwer@email.com, 2023-03-08 13:08:08.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: who, doctor, Dr.who, Dr.who@tardis.net, 2023-03-08 02:35:00.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: m2, 1234, ¹Ú±è·Ê, m2@test.com, 2023-03-07 02:40:51.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: m4, 1234, Àü±Ý·Ê, m4@test.com, 2023-03-07 02:40:51.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: m1, 1234, ¹Ú±æµ¿, m1@test.com, 2023-03-07 02:40:51.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: Zap, Zap, Â¬±æµ¿, hong@test.com, 2023-03-07 01:54:16.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: random, random, ±è·£´ý, random@test.com, 2023-03-03 15:56:03.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: lee, 1234, ÀÌ¼ø½Å, lee@test.com, 2023-02-20 10:07:03.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: hong, 1234, È«±æµ¿, hong@test.com, 2023-02-20 10:07:03.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: JooJake, lovesSeongHyeok, ÁÖÃ¢Çö, AKADIN@naver.com, 1995-01-01 00:00:00.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: ki, 123, ±â¼º¿ë, ki@test.com, 1995-01-01 00:00:00.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: son, 123, ¼ÕÈï¹Î, son@test.com, 1995-01-01 00:00:00.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-<==        Row: jake, willLoveSeongHyeok, ÁÖÃ¢Çö, JooJake@test.com, 1995-01-01 00:00:00.0
+[18:46:12][DEBUG](Slf4jImpl.java:43)-Committing JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[18:46:12][DEBUG](Slf4jImpl.java:43)-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4ef003d8]
+[18:46:12][DEBUG](DataSourceUtils.java:332)-Returning JDBC Connection to DataSource
+[18:46:12][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[18:48:15][INFO ](AbstractApplicationContext.java:1020)-Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:46:06 KST 2023]; parent: Root WebApplicationContext
+[18:48:15][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1c0680b0: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25
+[18:48:15][INFO ](AbstractApplicationContext.java:1020)-Closing Root WebApplicationContext: startup date [Tue Mar 14 18:46:05 KST 2023]; root of context hierarchy
+[18:48:15][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:48:16][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[18:48:16][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Tue Mar 14 18:48:16 KST 2023]; root of context hierarchy
+[18:48:16][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[18:48:17][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[18:48:17][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@d8545cf]
+[18:48:17][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5b5e6b4e: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:48:17][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[18:48:17][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:17][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:17][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:17][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:17][DEBUG](Slf4jImpl.java:43)-Parsed configuration file: 'class path resource [mybatis/model/modelConfig.xml]'
+[18:48:17][DEBUG](Slf4jImpl.java:43)-Created connection 912249334.
+[18:48:17][DEBUG](Slf4jImpl.java:43)-Returned connection 912249334 to pool.
+[18:48:17][DEBUG](Slf4jImpl.java:43)-Parsed mapper file: 'file [D:\eclipse\eclipse_2021_06\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\pro27\WEB-INF\classes\mybatis\mappers\member.xml]'
+[18:48:17][INFO ](ContextLoader.java:302)-Root WebApplicationContext: initialization completed in 1085 ms
+[18:48:17][INFO ](FrameworkServlet.java:444)-FrameworkServlet 'appServlet': initialization started
+[18:48:17][INFO ](AbstractApplicationContext.java:495)-Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:48:17 KST 2023]; parent: Root WebApplicationContext
+[18:48:17][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+[18:48:18][INFO ](ClassPathScanningCandidateComponentProvider.java:202)-JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[18:48:18][INFO ](ClassPathScanningCandidateComponentProvider.java:210)-JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[18:48:18][INFO ](AutowiredAnnotationBeanPostProcessor.java:139)-JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[18:48:18][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@528e889b]
+[18:48:18][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@45eaa9e6: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5b5e6b4e
+[18:48:18][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.myspring.pro27.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+[18:48:18][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/addMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.addMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:18][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modIntro.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modIntro(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:18][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/removeMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.removeMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:18][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/listMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.listMember(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:18][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/memberForm.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.memberForm(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:18][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/searchMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.searchMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:18][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modError.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:18][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/idOverlapped.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.myspring.pro27.member.controller.MemberControllerImpl.idOverlapped(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:18][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:18][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/updateMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.updateMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:18][INFO ](AbstractUrlHandlerMapping.java:314)-Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[18:48:18][INFO ](FrameworkServlet.java:463)-FrameworkServlet 'appServlet': initialization completed in 1072 ms
+[18:48:40][INFO ](AbstractApplicationContext.java:1020)-Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:48:17 KST 2023]; parent: Root WebApplicationContext
+[18:48:40][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@45eaa9e6: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5b5e6b4e
+[18:48:40][INFO ](AbstractApplicationContext.java:1020)-Closing Root WebApplicationContext: startup date [Tue Mar 14 18:48:16 KST 2023]; root of context hierarchy
+[18:48:40][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5b5e6b4e: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:48:41][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:42][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[18:48:42][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Tue Mar 14 18:48:42 KST 2023]; root of context hierarchy
+[18:48:42][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[18:48:42][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[18:48:42][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@2deb8c92]
+[18:48:42][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@7eaebb6d: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:48:42][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[18:48:42][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:42][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:42][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:42][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:42][DEBUG](Slf4jImpl.java:43)-Parsed configuration file: 'class path resource [mybatis/model/modelConfig.xml]'
+[18:48:43][DEBUG](Slf4jImpl.java:43)-Created connection 2019120216.
+[18:48:43][DEBUG](Slf4jImpl.java:43)-Returned connection 2019120216 to pool.
+[18:48:43][DEBUG](Slf4jImpl.java:43)-Parsed mapper file: 'file [D:\eclipse\eclipse_2021_06\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\pro27\WEB-INF\classes\mybatis\mappers\member.xml]'
+[18:48:43][INFO ](ContextLoader.java:302)-Root WebApplicationContext: initialization completed in 1116 ms
+[18:48:43][INFO ](FrameworkServlet.java:444)-FrameworkServlet 'appServlet': initialization started
+[18:48:43][INFO ](AbstractApplicationContext.java:495)-Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:48:43 KST 2023]; parent: Root WebApplicationContext
+[18:48:43][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+[18:48:43][INFO ](ClassPathScanningCandidateComponentProvider.java:202)-JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[18:48:43][INFO ](ClassPathScanningCandidateComponentProvider.java:210)-JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[18:48:44][INFO ](AutowiredAnnotationBeanPostProcessor.java:139)-JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[18:48:44][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@4b22dfe2]
+[18:48:44][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@7e0bd87b: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@7eaebb6d
+[18:48:44][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.myspring.pro27.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+[18:48:44][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/addMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.addMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:44][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modIntro.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modIntro(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:44][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/removeMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.removeMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:44][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/listMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.listMember(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:44][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/memberForm.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.memberForm(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:44][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/searchMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.searchMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:44][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modError.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:44][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/idOverlapped.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.myspring.pro27.member.controller.MemberControllerImpl.idOverlapped(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:44][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:44][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/updateMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.updateMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:44][INFO ](AbstractUrlHandlerMapping.java:314)-Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[18:48:44][INFO ](FrameworkServlet.java:463)-FrameworkServlet 'appServlet': initialization completed in 1302 ms
+[18:48:49][INFO ](AbstractApplicationContext.java:1020)-Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:48:43 KST 2023]; parent: Root WebApplicationContext
+[18:48:49][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@7e0bd87b: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@7eaebb6d
+[18:48:49][INFO ](AbstractApplicationContext.java:1020)-Closing Root WebApplicationContext: startup date [Tue Mar 14 18:48:42 KST 2023]; root of context hierarchy
+[18:48:49][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@7eaebb6d: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:48:54][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[18:48:54][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Tue Mar 14 18:48:54 KST 2023]; root of context hierarchy
+[18:48:54][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[18:48:55][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[18:48:55][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@6b9a1205]
+[18:48:55][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[18:48:55][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[18:48:55][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:55][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:55][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:55][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[18:48:55][DEBUG](Slf4jImpl.java:43)-Parsed configuration file: 'class path resource [mybatis/model/modelConfig.xml]'
+[18:48:55][DEBUG](Slf4jImpl.java:43)-Created connection 1242584406.
+[18:48:55][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[18:48:55][DEBUG](Slf4jImpl.java:43)-Parsed mapper file: 'file [D:\eclipse\eclipse_2021_06\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\pro27\WEB-INF\classes\mybatis\mappers\member.xml]'
+[18:48:55][INFO ](ContextLoader.java:302)-Root WebApplicationContext: initialization completed in 1240 ms
+[18:48:55][INFO ](FrameworkServlet.java:444)-FrameworkServlet 'appServlet': initialization started
+[18:48:55][INFO ](AbstractApplicationContext.java:495)-Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:48:55 KST 2023]; parent: Root WebApplicationContext
+[18:48:55][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+[18:48:57][INFO ](ClassPathScanningCandidateComponentProvider.java:202)-JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[18:48:57][INFO ](ClassPathScanningCandidateComponentProvider.java:210)-JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[18:48:57][INFO ](AutowiredAnnotationBeanPostProcessor.java:139)-JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[18:48:57][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@5ebf776c]
+[18:48:57][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1c0680b0: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25
+[18:48:57][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.myspring.pro27.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+[18:48:57][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/listMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.listMember(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:57][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:57][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/addMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.addMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:57][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/updateMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.updateMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:57][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modIntro.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modIntro(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:57][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/idOverlapped.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.myspring.pro27.member.controller.MemberControllerImpl.idOverlapped(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:57][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/removeMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.removeMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:57][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/searchMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.searchMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:57][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modError.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:57][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/memberForm.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.memberForm(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[18:48:57][INFO ](AbstractUrlHandlerMapping.java:314)-Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[18:48:57][INFO ](FrameworkServlet.java:463)-FrameworkServlet 'appServlet': initialization completed in 2195 ms
+[18:48:58][INFO ](MemberControllerImpl.java:43)-info ·¹º§ : viewName = /member/listMember
+[18:48:58][DEBUG](Slf4jImpl.java:43)-Creating a new SqlSession
+[18:48:58][DEBUG](Slf4jImpl.java:43)-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@260a5d39] was not registered for synchronization because synchronization is not active
+[18:48:58][DEBUG](DataSourceUtils.java:110)-Fetching JDBC Connection from DataSource
+[18:48:58][DEBUG](Slf4jImpl.java:43)-Checked out connection 1242584406 from pool.
+[18:48:58][DEBUG](Slf4jImpl.java:43)-JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556] will not be managed by Spring
+[18:48:58][DEBUG](Slf4jImpl.java:43)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[18:48:58][DEBUG](Slf4jImpl.java:43)-==>  Preparing: select * from t_member order by joinDate desc 
+[18:48:58][DEBUG](Slf4jImpl.java:43)-==> Parameters: 
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==    Columns: ID, PWD, NAME, EMAIL, JOINDATE
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: aaaaaaaaa, nbbbbbbb, ³­°ü, happy@naver.com, 2023-03-08 16:52:36.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: asdf, asfd, sadf, qwer@email.com, 2023-03-08 13:08:08.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: who, doctor, Dr.who, Dr.who@tardis.net, 2023-03-08 02:35:00.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: m2, 1234, ¹Ú±è·Ê, m2@test.com, 2023-03-07 02:40:51.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: m4, 1234, Àü±Ý·Ê, m4@test.com, 2023-03-07 02:40:51.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: m1, 1234, ¹Ú±æµ¿, m1@test.com, 2023-03-07 02:40:51.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: Zap, Zap, Â¬±æµ¿, hong@test.com, 2023-03-07 01:54:16.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: random, random, ±è·£´ý, random@test.com, 2023-03-03 15:56:03.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: lee, 1234, ÀÌ¼ø½Å, lee@test.com, 2023-02-20 10:07:03.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: hong, 1234, È«±æµ¿, hong@test.com, 2023-02-20 10:07:03.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: JooJake, lovesSeongHyeok, ÁÖÃ¢Çö, AKADIN@naver.com, 1995-01-01 00:00:00.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: ki, 123, ±â¼º¿ë, ki@test.com, 1995-01-01 00:00:00.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: son, 123, ¼ÕÈï¹Î, son@test.com, 1995-01-01 00:00:00.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-<==        Row: jake, willLoveSeongHyeok, ÁÖÃ¢Çö, JooJake@test.com, 1995-01-01 00:00:00.0
+[18:48:58][DEBUG](Slf4jImpl.java:43)-Committing JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[18:48:58][DEBUG](Slf4jImpl.java:43)-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@260a5d39]
+[18:48:58][DEBUG](DataSourceUtils.java:332)-Returning JDBC Connection to DataSource
+[18:48:58][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[19:15:21][INFO ](AbstractApplicationContext.java:1020)-Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 18:48:55 KST 2023]; parent: Root WebApplicationContext
+[19:15:21][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1c0680b0: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25
+[19:15:21][INFO ](AbstractApplicationContext.java:1020)-Closing Root WebApplicationContext: startup date [Tue Mar 14 18:48:54 KST 2023]; root of context hierarchy
+[19:15:21][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[19:15:27][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[19:15:27][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Tue Mar 14 19:15:27 KST 2023]; root of context hierarchy
+[19:15:27][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[19:15:27][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[19:15:27][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@6b9a1205]
+[19:15:27][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[19:15:27][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[19:15:27][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:15:27][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:15:27][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:15:27][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:15:28][DEBUG](Slf4jImpl.java:43)-Parsed configuration file: 'class path resource [mybatis/model/modelConfig.xml]'
+[19:15:28][DEBUG](Slf4jImpl.java:43)-Created connection 1242584406.
+[19:15:28][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[19:15:28][DEBUG](Slf4jImpl.java:43)-Parsed mapper file: 'file [D:\eclipse\eclipse_2021_06\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\pro27\WEB-INF\classes\mybatis\mappers\member.xml]'
+[19:15:28][INFO ](ContextLoader.java:302)-Root WebApplicationContext: initialization completed in 1302 ms
+[19:15:28][INFO ](FrameworkServlet.java:444)-FrameworkServlet 'appServlet': initialization started
+[19:15:28][INFO ](AbstractApplicationContext.java:495)-Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 19:15:28 KST 2023]; parent: Root WebApplicationContext
+[19:15:28][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+[19:15:29][INFO ](ClassPathScanningCandidateComponentProvider.java:202)-JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[19:15:29][INFO ](ClassPathScanningCandidateComponentProvider.java:210)-JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[19:15:30][INFO ](AutowiredAnnotationBeanPostProcessor.java:139)-JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[19:15:30][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@5ebf776c]
+[19:15:30][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1c0680b0: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25
+[19:15:30][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.myspring.pro27.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+[19:15:30][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/searchMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.searchMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:30][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/updateMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.updateMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:30][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modError.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:30][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/memberForm.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.memberForm(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:30][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/idOverlapped.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.myspring.pro27.member.controller.MemberControllerImpl.idOverlapped(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:30][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/addMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.addMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:30][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/removeMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.removeMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:30][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/listMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.listMember(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:30][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modIntro.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modIntro(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:30][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:30][INFO ](AbstractUrlHandlerMapping.java:314)-Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[19:15:30][INFO ](FrameworkServlet.java:463)-FrameworkServlet 'appServlet': initialization completed in 1968 ms
+[19:15:30][INFO ](MemberControllerImpl.java:43)-info ·¹º§ : viewName = /listMember
+[19:15:30][DEBUG](Slf4jImpl.java:43)-Creating a new SqlSession
+[19:15:30][DEBUG](Slf4jImpl.java:43)-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@519317f9] was not registered for synchronization because synchronization is not active
+[19:15:30][DEBUG](DataSourceUtils.java:110)-Fetching JDBC Connection from DataSource
+[19:15:30][DEBUG](Slf4jImpl.java:43)-Checked out connection 1242584406 from pool.
+[19:15:30][DEBUG](Slf4jImpl.java:43)-JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556] will not be managed by Spring
+[19:15:30][DEBUG](Slf4jImpl.java:43)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[19:15:30][DEBUG](Slf4jImpl.java:43)-==>  Preparing: select * from t_member order by joinDate desc 
+[19:15:31][DEBUG](Slf4jImpl.java:43)-==> Parameters: 
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==    Columns: ID, PWD, NAME, EMAIL, JOINDATE
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: aaaaaaaaa, nbbbbbbb, ³­°ü, happy@naver.com, 2023-03-08 16:52:36.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: asdf, asfd, sadf, qwer@email.com, 2023-03-08 13:08:08.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: who, doctor, Dr.who, Dr.who@tardis.net, 2023-03-08 02:35:00.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: m2, 1234, ¹Ú±è·Ê, m2@test.com, 2023-03-07 02:40:51.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: m4, 1234, Àü±Ý·Ê, m4@test.com, 2023-03-07 02:40:51.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: m1, 1234, ¹Ú±æµ¿, m1@test.com, 2023-03-07 02:40:51.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: Zap, Zap, Â¬±æµ¿, hong@test.com, 2023-03-07 01:54:16.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: random, random, ±è·£´ý, random@test.com, 2023-03-03 15:56:03.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: lee, 1234, ÀÌ¼ø½Å, lee@test.com, 2023-02-20 10:07:03.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: hong, 1234, È«±æµ¿, hong@test.com, 2023-02-20 10:07:03.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: JooJake, lovesSeongHyeok, ÁÖÃ¢Çö, AKADIN@naver.com, 1995-01-01 00:00:00.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: ki, 123, ±â¼º¿ë, ki@test.com, 1995-01-01 00:00:00.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: son, 123, ¼ÕÈï¹Î, son@test.com, 1995-01-01 00:00:00.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-<==        Row: jake, willLoveSeongHyeok, ÁÖÃ¢Çö, JooJake@test.com, 1995-01-01 00:00:00.0
+[19:15:31][DEBUG](Slf4jImpl.java:43)-Committing JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[19:15:31][DEBUG](Slf4jImpl.java:43)-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@519317f9]
+[19:15:31][DEBUG](DataSourceUtils.java:332)-Returning JDBC Connection to DataSource
+[19:15:31][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[19:15:33][INFO ](MemberControllerImpl.java:43)-info ·¹º§ : viewName = /listMember
+[19:15:33][DEBUG](Slf4jImpl.java:43)-Creating a new SqlSession
+[19:15:33][DEBUG](Slf4jImpl.java:43)-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@963f614] was not registered for synchronization because synchronization is not active
+[19:15:33][DEBUG](DataSourceUtils.java:110)-Fetching JDBC Connection from DataSource
+[19:15:33][DEBUG](Slf4jImpl.java:43)-Checked out connection 1242584406 from pool.
+[19:15:33][DEBUG](Slf4jImpl.java:43)-JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556] will not be managed by Spring
+[19:15:33][DEBUG](Slf4jImpl.java:43)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[19:15:33][DEBUG](Slf4jImpl.java:43)-==>  Preparing: select * from t_member order by joinDate desc 
+[19:15:33][DEBUG](Slf4jImpl.java:43)-==> Parameters: 
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==    Columns: ID, PWD, NAME, EMAIL, JOINDATE
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: aaaaaaaaa, nbbbbbbb, ³­°ü, happy@naver.com, 2023-03-08 16:52:36.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: asdf, asfd, sadf, qwer@email.com, 2023-03-08 13:08:08.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: who, doctor, Dr.who, Dr.who@tardis.net, 2023-03-08 02:35:00.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: m2, 1234, ¹Ú±è·Ê, m2@test.com, 2023-03-07 02:40:51.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: m4, 1234, Àü±Ý·Ê, m4@test.com, 2023-03-07 02:40:51.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: m1, 1234, ¹Ú±æµ¿, m1@test.com, 2023-03-07 02:40:51.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: Zap, Zap, Â¬±æµ¿, hong@test.com, 2023-03-07 01:54:16.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: random, random, ±è·£´ý, random@test.com, 2023-03-03 15:56:03.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: lee, 1234, ÀÌ¼ø½Å, lee@test.com, 2023-02-20 10:07:03.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: hong, 1234, È«±æµ¿, hong@test.com, 2023-02-20 10:07:03.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: JooJake, lovesSeongHyeok, ÁÖÃ¢Çö, AKADIN@naver.com, 1995-01-01 00:00:00.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: ki, 123, ±â¼º¿ë, ki@test.com, 1995-01-01 00:00:00.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: son, 123, ¼ÕÈï¹Î, son@test.com, 1995-01-01 00:00:00.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-<==        Row: jake, willLoveSeongHyeok, ÁÖÃ¢Çö, JooJake@test.com, 1995-01-01 00:00:00.0
+[19:15:33][DEBUG](Slf4jImpl.java:43)-Committing JDBC Connection [oracle.jdbc.driver.T4CConnection@4a105556]
+[19:15:33][DEBUG](Slf4jImpl.java:43)-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@963f614]
+[19:15:33][DEBUG](DataSourceUtils.java:332)-Returning JDBC Connection to DataSource
+[19:15:33][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[19:15:52][INFO ](AbstractApplicationContext.java:1020)-Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 19:15:28 KST 2023]; parent: Root WebApplicationContext
+[19:15:52][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1c0680b0: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25
+[19:15:52][INFO ](AbstractApplicationContext.java:1020)-Closing Root WebApplicationContext: startup date [Tue Mar 14 19:15:27 KST 2023]; root of context hierarchy
+[19:15:52][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[19:15:52][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:15:54][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[19:15:54][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Tue Mar 14 19:15:54 KST 2023]; root of context hierarchy
+[19:15:54][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[19:15:54][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[19:15:54][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@4ea2eae5]
+[19:15:54][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5f525901: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[19:15:54][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[19:15:54][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:15:54][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:15:54][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:15:54][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:15:55][DEBUG](Slf4jImpl.java:43)-Parsed configuration file: 'class path resource [mybatis/model/modelConfig.xml]'
+[19:15:55][DEBUG](Slf4jImpl.java:43)-Created connection 1831474781.
+[19:15:55][DEBUG](Slf4jImpl.java:43)-Returned connection 1831474781 to pool.
+[19:15:55][DEBUG](Slf4jImpl.java:43)-Parsed mapper file: 'file [D:\eclipse\eclipse_2021_06\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\pro27\WEB-INF\classes\mybatis\mappers\member.xml]'
+[19:15:55][INFO ](ContextLoader.java:302)-Root WebApplicationContext: initialization completed in 1085 ms
+[19:15:55][INFO ](FrameworkServlet.java:444)-FrameworkServlet 'appServlet': initialization started
+[19:15:55][INFO ](AbstractApplicationContext.java:495)-Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 19:15:55 KST 2023]; parent: Root WebApplicationContext
+[19:15:55][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+[19:15:56][INFO ](ClassPathScanningCandidateComponentProvider.java:202)-JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[19:15:56][INFO ](ClassPathScanningCandidateComponentProvider.java:210)-JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[19:15:56][INFO ](AutowiredAnnotationBeanPostProcessor.java:139)-JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[19:15:56][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@34ac0857]
+[19:15:56][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@67a23524: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5f525901
+[19:15:56][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.myspring.pro27.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+[19:15:56][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/searchMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.searchMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:56][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/updateMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.updateMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:56][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modError.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:56][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/memberForm.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.memberForm(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:56][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/idOverlapped.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.myspring.pro27.member.controller.MemberControllerImpl.idOverlapped(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:56][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/addMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.addMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:56][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/removeMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.removeMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:56][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/listMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.listMember(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:56][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modIntro.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modIntro(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:56][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:15:56][INFO ](AbstractUrlHandlerMapping.java:314)-Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[19:15:56][INFO ](FrameworkServlet.java:463)-FrameworkServlet 'appServlet': initialization completed in 1033 ms
+[19:16:21][INFO ](MemberControllerImpl.java:43)-info ·¹º§ : viewName = /member/listMember
+[19:16:21][DEBUG](Slf4jImpl.java:43)-Creating a new SqlSession
+[19:16:21][DEBUG](Slf4jImpl.java:43)-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78733117] was not registered for synchronization because synchronization is not active
+[19:16:21][DEBUG](DataSourceUtils.java:110)-Fetching JDBC Connection from DataSource
+[19:16:21][DEBUG](Slf4jImpl.java:43)-Checked out connection 1831474781 from pool.
+[19:16:21][DEBUG](Slf4jImpl.java:43)-JDBC Connection [oracle.jdbc.driver.T4CConnection@6d2a165d] will not be managed by Spring
+[19:16:21][DEBUG](Slf4jImpl.java:43)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@6d2a165d]
+[19:16:21][DEBUG](Slf4jImpl.java:43)-==>  Preparing: select * from t_member order by joinDate desc 
+[19:16:21][DEBUG](Slf4jImpl.java:43)-==> Parameters: 
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==    Columns: ID, PWD, NAME, EMAIL, JOINDATE
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: aaaaaaaaa, nbbbbbbb, ³­°ü, happy@naver.com, 2023-03-08 16:52:36.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: asdf, asfd, sadf, qwer@email.com, 2023-03-08 13:08:08.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: who, doctor, Dr.who, Dr.who@tardis.net, 2023-03-08 02:35:00.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: m2, 1234, ¹Ú±è·Ê, m2@test.com, 2023-03-07 02:40:51.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: m4, 1234, Àü±Ý·Ê, m4@test.com, 2023-03-07 02:40:51.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: m1, 1234, ¹Ú±æµ¿, m1@test.com, 2023-03-07 02:40:51.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: Zap, Zap, Â¬±æµ¿, hong@test.com, 2023-03-07 01:54:16.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: random, random, ±è·£´ý, random@test.com, 2023-03-03 15:56:03.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: lee, 1234, ÀÌ¼ø½Å, lee@test.com, 2023-02-20 10:07:03.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: hong, 1234, È«±æµ¿, hong@test.com, 2023-02-20 10:07:03.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: JooJake, lovesSeongHyeok, ÁÖÃ¢Çö, AKADIN@naver.com, 1995-01-01 00:00:00.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: ki, 123, ±â¼º¿ë, ki@test.com, 1995-01-01 00:00:00.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: son, 123, ¼ÕÈï¹Î, son@test.com, 1995-01-01 00:00:00.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-<==        Row: jake, willLoveSeongHyeok, ÁÖÃ¢Çö, JooJake@test.com, 1995-01-01 00:00:00.0
+[19:16:21][DEBUG](Slf4jImpl.java:43)-Committing JDBC Connection [oracle.jdbc.driver.T4CConnection@6d2a165d]
+[19:16:21][DEBUG](Slf4jImpl.java:43)-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@78733117]
+[19:16:21][DEBUG](DataSourceUtils.java:332)-Returning JDBC Connection to DataSource
+[19:16:21][DEBUG](Slf4jImpl.java:43)-Returned connection 1831474781 to pool.
+[19:16:23][INFO ](MemberControllerImpl.java:43)-info ·¹º§ : viewName = /member/listMember
+[19:16:23][DEBUG](Slf4jImpl.java:43)-Creating a new SqlSession
+[19:16:23][DEBUG](Slf4jImpl.java:43)-SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17192da8] was not registered for synchronization because synchronization is not active
+[19:16:23][DEBUG](DataSourceUtils.java:110)-Fetching JDBC Connection from DataSource
+[19:16:23][DEBUG](Slf4jImpl.java:43)-Checked out connection 1831474781 from pool.
+[19:16:23][DEBUG](Slf4jImpl.java:43)-JDBC Connection [oracle.jdbc.driver.T4CConnection@6d2a165d] will not be managed by Spring
+[19:16:23][DEBUG](Slf4jImpl.java:43)-ooo Using Connection [oracle.jdbc.driver.T4CConnection@6d2a165d]
+[19:16:23][DEBUG](Slf4jImpl.java:43)-==>  Preparing: select * from t_member order by joinDate desc 
+[19:16:23][DEBUG](Slf4jImpl.java:43)-==> Parameters: 
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==    Columns: ID, PWD, NAME, EMAIL, JOINDATE
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: aaaaaaaaa, nbbbbbbb, ³­°ü, happy@naver.com, 2023-03-08 16:52:36.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: asdf, asfd, sadf, qwer@email.com, 2023-03-08 13:08:08.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: who, doctor, Dr.who, Dr.who@tardis.net, 2023-03-08 02:35:00.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: m2, 1234, ¹Ú±è·Ê, m2@test.com, 2023-03-07 02:40:51.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: m4, 1234, Àü±Ý·Ê, m4@test.com, 2023-03-07 02:40:51.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: m1, 1234, ¹Ú±æµ¿, m1@test.com, 2023-03-07 02:40:51.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: Zap, Zap, Â¬±æµ¿, hong@test.com, 2023-03-07 01:54:16.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: random, random, ±è·£´ý, random@test.com, 2023-03-03 15:56:03.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: lee, 1234, ÀÌ¼ø½Å, lee@test.com, 2023-02-20 10:07:03.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: hong, 1234, È«±æµ¿, hong@test.com, 2023-02-20 10:07:03.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: JooJake, lovesSeongHyeok, ÁÖÃ¢Çö, AKADIN@naver.com, 1995-01-01 00:00:00.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: ki, 123, ±â¼º¿ë, ki@test.com, 1995-01-01 00:00:00.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: son, 123, ¼ÕÈï¹Î, son@test.com, 1995-01-01 00:00:00.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-<==        Row: jake, willLoveSeongHyeok, ÁÖÃ¢Çö, JooJake@test.com, 1995-01-01 00:00:00.0
+[19:16:23][DEBUG](Slf4jImpl.java:43)-Committing JDBC Connection [oracle.jdbc.driver.T4CConnection@6d2a165d]
+[19:16:23][DEBUG](Slf4jImpl.java:43)-Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17192da8]
+[19:16:23][DEBUG](DataSourceUtils.java:332)-Returning JDBC Connection to DataSource
+[19:16:23][DEBUG](Slf4jImpl.java:43)-Returned connection 1831474781 to pool.
+[19:16:29][INFO ](AbstractApplicationContext.java:1020)-Closing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 19:15:55 KST 2023]; parent: Root WebApplicationContext
+[19:16:29][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@67a23524: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5f525901
+[19:16:29][INFO ](AbstractApplicationContext.java:1020)-Closing Root WebApplicationContext: startup date [Tue Mar 14 19:15:54 KST 2023]; root of context hierarchy
+[19:16:29][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5f525901: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[19:16:35][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[19:16:35][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Tue Mar 14 19:16:35 KST 2023]; root of context hierarchy
+[19:16:35][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[19:16:35][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[19:16:35][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@6b9a1205]
+[19:16:35][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[19:16:35][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[19:16:35][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:16:35][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:16:35][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:16:35][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[19:16:35][DEBUG](Slf4jImpl.java:43)-Parsed configuration file: 'class path resource [mybatis/model/modelConfig.xml]'
+[19:16:36][DEBUG](Slf4jImpl.java:43)-Created connection 1242584406.
+[19:16:36][DEBUG](Slf4jImpl.java:43)-Returned connection 1242584406 to pool.
+[19:16:36][DEBUG](Slf4jImpl.java:43)-Parsed mapper file: 'file [D:\eclipse\eclipse_2021_06\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\pro27\WEB-INF\classes\mybatis\mappers\member.xml]'
+[19:16:36][INFO ](ContextLoader.java:302)-Root WebApplicationContext: initialization completed in 1280 ms
+[19:16:36][INFO ](FrameworkServlet.java:444)-FrameworkServlet 'appServlet': initialization started
+[19:16:36][INFO ](AbstractApplicationContext.java:495)-Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Mar 14 19:16:36 KST 2023]; parent: Root WebApplicationContext
+[19:16:36][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+[19:16:37][INFO ](ClassPathScanningCandidateComponentProvider.java:202)-JSR-250 'javax.annotation.ManagedBean' found and supported for component scanning
+[19:16:37][INFO ](ClassPathScanningCandidateComponentProvider.java:210)-JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+[19:16:37][INFO ](AutowiredAnnotationBeanPostProcessor.java:139)-JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[19:16:37][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@5ebf776c]
+[19:16:37][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1c0680b0: defining beans [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0,org.springframework.format.support.FormattingConversionServiceFactoryBean#0,org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter#0,org.springframework.web.servlet.handler.MappedInterceptor#0,org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver#0,org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver#0,org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver#0,org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping,org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter,org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter,org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0,org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0,org.springframework.web.servlet.view.InternalResourceViewResolver#0,homeController,memberContoller,memberDAO,memberService,memberVO,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@5efe5b25
+[19:16:37][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/],methods=[GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String com.myspring.pro27.HomeController.home(java.util.Locale,org.springframework.ui.Model)
+[19:16:37][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/listMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.listMember(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:16:37][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modIntro.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modIntro(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:16:37][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/addMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.addMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:16:37][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/searchMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.searchMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:16:37][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:16:37][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/updateMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.updateMember(com.myspring.pro27.member.vo.MemberVO,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:16:37][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/memberForm.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.memberForm(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:16:37][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/modError.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.modError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:16:37][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/idOverlapped.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public void com.myspring.pro27.member.controller.MemberControllerImpl.idOverlapped(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:16:37][INFO ](AbstractHandlerMethodMapping.java:190)-Mapped "{[/member/removeMember.do],methods=[POST || GET],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView com.myspring.pro27.member.controller.MemberControllerImpl.removeMember(java.lang.String,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+[19:16:38][INFO ](AbstractUrlHandlerMapping.java:314)-Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+[19:16:38][INFO ](FrameworkServlet.java:463)-FrameworkServlet 'appServlet': initialization completed in 1987 ms
