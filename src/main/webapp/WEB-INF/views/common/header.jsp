@@ -16,17 +16,17 @@
 <title>상단부</title>
 </head>
 <body>
-<table	border="0" width="100%">
-	<tr>
-		<td>
-			<a href="${contextPath }/main.do">
+
+	<header class="header">
+		<div class="logo">
+			<a href="${contextPath }/member/loginForm.do">
 				<img alt="dog" src="${contextPath }/resources/image/dog.jfif">
 			</a>
-		</td>
-		<td>
+		</div>
+		<div class="h_banner">
 			<h1><font size=30>스프링실습 홈페이지</font></h1>
-		</td>
-		<td>
+		</div>
+		<div class="isLogOn">
 			<c:choose>
 				<c:when test="${isLogOn == true && member!=null}">
 					<h3>환영합니다. ${member.name}님</h3>
@@ -36,9 +36,10 @@
 					<a href="${contextPath}/member/loginForm.do"><h3>로그인</h3></a>
 				</c:otherwise>
 			</c:choose>
-		</td>
-	</tr>
-	
-</table>
+		</div>
+	</header>
+
+
+
 </body>
 </html>

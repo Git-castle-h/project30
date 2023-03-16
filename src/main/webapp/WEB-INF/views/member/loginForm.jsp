@@ -25,20 +25,22 @@
 </c:choose>
 </head>
 <body>
-	<form action="${contextPath}/member/login.do" method="post">
-		<table>
-			<tr>
-				<td>아이디 : </td>
-				<td><input type="text" name="id"></td>
-			</tr>
-			<tr>
-				<td>비밀번호 : </td>
-				<td><input type="password" name="pwd"></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="로그인"></td>
-			</tr>	
-		</table>
-	</form>
+	<div class="loginBox">
+		<form action="${contextPath}/member/login.do" method="post">
+			<table>
+				<tr>
+					<td>아이디 : </td>
+					<td><input type="text" name="id"></td>
+				</tr>
+				<tr>
+					<td>비밀번호 : </td>
+					<td><input type="password" name="pwd"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="로그인"></td>
+				</tr>	
+			</table>
+		</form>
+	</div>
 </body>
 </html>

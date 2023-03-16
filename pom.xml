@@ -128,7 +128,7 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.1.0</version>
 		</dependency>
-		<dependency>
+		<dependency>	
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.1.0</version>
@@ -138,6 +138,8 @@
 			<artifactId>cglib-nodep</artifactId>
 			<version>2.2</version>
 		</dependency>
+		
+		<!-- tiles -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-core</artifactId>
@@ -153,7 +155,6 @@
 			<artifactId>tiles-servlet</artifactId>
 			<version>2.2.2</version>
 		</dependency>
-		
 		
 		<dependency>
 			<groupId>jdbc.oracle</groupId>

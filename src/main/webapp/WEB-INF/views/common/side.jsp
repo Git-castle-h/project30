@@ -16,9 +16,13 @@
 <title>사이드 메뉴</title>
 </head>
 <body>
+	<div class="side">
 	<h1>사이드 메뉴</h1>
-	<a href="#" class="no-underline">회원관리</a>
-	<a href="#" class="no-underline">게시판관리</a>
-	<a href="#" class="no-underline">상품관리</a>
+		<div class="menu">
+			<a href="#" class="no-underline">회원관리</a>
+			<a href="#" class="no-underline">게시판관리</a>
+			<a href="#" class="no-underline">상품관리</a>
+		</div>
+	</div>
 </body>
 </html>

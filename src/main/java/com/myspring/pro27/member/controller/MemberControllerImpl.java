@@ -35,7 +35,7 @@ public class MemberControllerImpl  extends MultiActionController implements Memb
 	
 	@Autowired
 	private MemberVO memberVO;
-	
+
 	@Override
 	@RequestMapping(value="/listMember.do", method= {RequestMethod.POST,RequestMethod.GET})
 	public ModelAndView listMember(HttpServletRequest request, HttpServletResponse response) throws Exception {
