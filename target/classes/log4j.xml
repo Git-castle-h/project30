@@ -12,7 +12,7 @@
 	
 	<!-- DailyRollingFile Appenders -->
 	<appender name="dailyFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="D:\\eclipse\\eclipse_2021_06\\workspace\\pro27\\src\\main\\webapp\\resources\\logs\\output.log"/>
+		<param name="File" value="D:\\eclipse\\eclipse_2021_06\\workspace\\pro30\\src\\main\\webapp\\resources\\logs\\output.log"/>
 		<param name="Append" value="true"/>
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="DatePattern" value="'.'yyyy-MM-dd"/>
@@ -21,7 +21,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.myspring.pro27">
+	<logger name="com.myspring.pro30">
 		<level value="info" />
 	</logger>
 	

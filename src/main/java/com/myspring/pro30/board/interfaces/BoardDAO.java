@@ -7,4 +7,5 @@ public interface BoardDAO {
 	
 	List selectAllArticleList();
 	List selectPage(Map paSec);
+	int insertArticle(Map articleMap)throws Exception;
 }

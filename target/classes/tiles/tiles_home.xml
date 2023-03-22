@@ -13,14 +13,16 @@
 		<put-attribute name="body" value=""></put-attribute>
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"></put-attribute>
 	</definition>
-	<definition name="/board/listArticle" extends="baseLayout">
-		<put-attribute name="title" value="글목록창"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/board/listArticle.jsp"></put-attribute>
+	
+	<definition name="home" extends="baseLayout">
+		<put-attribute name="title" value="HOME"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/home.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="/board/articleForm" extends="baseLayout">
-		<put-attribute name="title" value="글쓰기창"></put-attribute>
-		<put-attribute name="body" value="/WEB-INF/views/board/articleForm.jsp"></put-attribute>
+	<definition name="main" extends="baseLayout">
+		<put-attribute name="title" value="HOME"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/main.jsp"></put-attribute>
 	</definition>
+
 	
 </tiles-definitions>

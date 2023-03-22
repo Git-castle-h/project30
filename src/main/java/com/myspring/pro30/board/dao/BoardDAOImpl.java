@@ -15,18 +15,32 @@ public class BoardDAOImpl implements BoardDAO{
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<ArticleVO> selectAllArticleList() {
+	@Override
+	public List<ArticleVO> selectAllArticleList(){
 		
 		List<ArticleVO> articleList = sqlSession.selectList("mapper.board.selectAllArticleList");
 		
 		return articleList;
 	};
 	
-	public List<ArticleVO> selectPage(Map paSec) {
+	@Override
+	public List<ArticleVO> selectPage(Map paSec){
 		
 		List<ArticleVO> articlePage = sqlSession.selectList("mapper.board.selectPage",paSec);
 		
 		return articlePage;
 	};
+	
+	@Override
+	public int insertArticle(Map articleMap)throws Exception{
+		int articleNO = selectNewArticleNO();
+		articleMap.put("articleNO", articleNO);
+		sqlSession.insert("mapper.board.insertArticle",articleMap);
+		return articleNO;
+	};
+	
+	private int selectNewArticleNO()throws Exception{
+		return sqlSession.selectOne("mapper.board.selectNewArticleNO");
+	}
 	
 }

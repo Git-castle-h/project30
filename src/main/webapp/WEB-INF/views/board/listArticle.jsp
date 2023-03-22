@@ -118,7 +118,17 @@
 				</c:when>
 			</c:choose>
 		</c:if>
-		<a class="writeBtn" href="${contextPath}/board/articleForm.do">글쓰기</a>
+		<script>	
+			function fn_articleForm(isLogOn,articleForm,loginForm){
+				if(isLogOn != '' && isLogOn != 'false'){
+					location.href=articleForm;
+				}else{
+					alert('로그인 후 글쓰기가 가능합니다.');
+					location.href=loginForm+'?action=/board/articleForm.do';
+				}
+			}
+		</script>
+		<a class="writeBtn" href="javascript:fn_articleForm('${isLogOn}','${contextPath}/board/articleForm.do','${contextPath}/member/loginForm.do')">글쓰기</a>
 	</div>
 	</div>
 	</div>

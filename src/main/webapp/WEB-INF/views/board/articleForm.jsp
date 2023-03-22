@@ -57,6 +57,9 @@
 			<tr>
 				<td align="right"></td>
 				<td colspan="2">
+					<input type="text" size="20" maxlength="100" name="id" value="${member.name}" readonly/>
+				</td>
+				<td colspan="2">
 					<input type="submit" value="글쓰기"/>
 					<input type="button" value="목록보기" onclick="backToList(this.form)"/>
 				</td>
