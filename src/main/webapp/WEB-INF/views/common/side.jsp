@@ -19,8 +19,8 @@
 	<div class="side">
 	<h1>사이드 메뉴</h1>
 		<div class="menu">
-			<a href="#" class="no-underline">회원관리</a>
-			<a href="#" class="no-underline">게시판관리</a>
+			<a href="${contextPath }/member/listMember.do" class="no-underline">회원관리</a>
+			<a href="${contextPath }/board/listArticle.do" class="no-underline">게시판관리</a>
 			<a href="#" class="no-underline">상품관리</a>
 		</div>
 	</div>

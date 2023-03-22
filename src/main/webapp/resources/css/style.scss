@@ -1,6 +1,7 @@
 *{
     padding:0;
     margin:0;
+    font-family: "나눔 스퀘어", "Nanum Square",sans-serif;
 }
 
 .header{
@@ -57,6 +58,85 @@
 
 
 }
+
+
+table{
+    border-collapse: collapse;
+}
+
+a{
+    text-decoration: none;
+    color:#2d2d2d;
+}
+
+.container{
+    width:100%;
+    margin:0 auto;
+    margin-top: 1em;
+    
+    &.w800{
+        max-width: 800px;
+    }
+}
+
+.tableWrap{
+    width:100%;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 1em;
+    padding:1em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    .mainTable{
+
+
+        tr{
+
+            th{
+                padding:0.2em;
+
+            }
+            &.head{
+                th{
+                    padding-bottom: 0.5em;
+                }
+            }
+
+            td{
+                &:hover,&:focus{
+                    color:#64b5f6;
+                }
+            }
+
+        }
+    }
+
+    .tableBottom{
+        padding-top: 1em;
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .writeBtn{
+            font-size: 0.8em;
+            background-color: #64b5f6;
+            position: absolute;
+            right:0%;
+            transition: all 0.3s;
+
+            &:hover,&:focus{
+                background-color: #1985c1;
+            }
+        }
+    }
+}
+
+
+
+
+
 
 .footer{
     width:100%;

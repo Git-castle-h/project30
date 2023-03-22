@@ -14,6 +14,7 @@
 	<tiles:insertAttribute name="title"/>
 </title>
 <link href="${contextPath}<tiles:getAsString name="css"/>" rel="stylesheet">
+<link href="${contextPath}<tiles:getAsString name="font"/>" rel="stylesheet">
 </head>
 <body>
 	<tiles:insertAttribute name="header"/>

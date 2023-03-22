@@ -6,6 +6,8 @@
 <tiles-definitions>
 	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
 		<put-attribute name="title"></put-attribute>
+		<put-attribute name="css" value="/resources/css/style.css"></put-attribute>
+		<put-attribute name="font" value="/resources/css/font.css"></put-attribute>
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"></put-attribute>
 		<put-attribute name="side" value="/WEB-INF/views/common/side.jsp"></put-attribute>
 		<put-attribute name="body" value=""></put-attribute>
@@ -13,22 +15,19 @@
 	</definition>
 	
 	
-	<definition name="main" extends="baseLayout">
+	<definition name="/member/main" extends="baseLayout">
 		<put-attribute name="title" value="메인페이지"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/main.jsp"></put-attribute>
 	</definition>
 	<definition name="/member/listMember" extends="baseLayout">
-		<put-attribute name="css" value="/resources/css/style.css"></put-attribute>
 		<put-attribute name="title" value="회원목록창"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/member/listMember.jsp"></put-attribute>
 	</definition>
 	<definition name="/member/memberForm" extends="baseLayout">
-		<put-attribute name="css" value="/resources/css/style.css"></put-attribute>
 		<put-attribute name="title" value="회원가입"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/member/memberForm.jsp"></put-attribute>
 	</definition>
 	<definition name="/member/loginForm" extends="baseLayout">
-		<put-attribute name="css" value="/resources/css/style.css"></put-attribute>
 		<put-attribute name="title" value="로그인창"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/member/loginForm.jsp"></put-attribute>
 	</definition>

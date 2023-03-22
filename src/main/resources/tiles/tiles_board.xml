@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+        
+<tiles-definitions>
+	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
+		<put-attribute name="title"></put-attribute>
+		<put-attribute name="css" value="/resources/css/style.css"></put-attribute>
+		<put-attribute name="font" value="/resources/css/font.css"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"></put-attribute>
+		<put-attribute name="side" value="/WEB-INF/views/common/side.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"></put-attribute>
+	</definition>
+	
+	
+	<definition name="/board/listArticle" extends="baseLayout">
+		<put-attribute name="title" value="글목록창"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/board/listArticle.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="/board/articleForm" extends="baseLayout">
+		<put-attribute name="title" value="글쓰기창"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/board/articleForm.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>
