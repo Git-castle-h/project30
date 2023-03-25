@@ -20,6 +20,11 @@
 			if(document.getElementById("i_imageFileName")!= null){
 				document.getElementById("i_imageFileName").disabled=false;	
 			}
+			if(document.querySelector(".tr_file_upload")!=null){
+				document.querySelector(".tr_file_upload").style.display="table-row";
+				document.querySelector(".tr_image_preview").style.display="table-row";
+			}
+			
 			document.getElementById("tr_btn_modify").style.display="contents";
 			document.getElementById("tr_btn").style.display="none";
 		}
@@ -111,20 +116,36 @@
 					<textarea row="20" cols="60" name="content" id ="i_content" disabled>${article.content}</textarea>
 				</td>
 			</tr>
-			<c:if test="${not empty article.imageFileName && article.imageFileName != null }">
-				<tr>
-					<td  align="center" bgcolor="#FF9933" rowspan ="2">이미지</td>
-					<td>
-						<input type="hidden" name="originalFileName" value ="${article.imageFileName }"/>
-						<img src ="${contextPath}/download.do?imageFileName=${article.imageFileName}&articleNO=${article.articleNO}" id="preview"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="file" name="imageFileName" id="i_imageFileName" disabled onchange="readURL(this);"/>
-					</td>
-				</tr>
-			</c:if>
+			<c:choose>
+				<c:when test="${not empty article.imageFileName && article.imageFileName != null }">
+					<tr>
+						<td  align="center" bgcolor="#FF9933" rowspan ="2">이미지</td>
+						<td>
+							<input type="hidden" name="originalFileName" value ="${article.imageFileName }"/>
+							<img src ="${contextPath}/download.do?imageFileName=${article.imageFileName}&articleNO=${article.articleNO}" id="preview"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="file" name="imageFileName" id="i_imageFileName" disabled onchange="readURL(this);"/>
+						</td>
+					</tr>
+				</c:when>
+				<c:otherwise>
+					<tr class="tr_file_upload" style="display:none">
+						<td  align="center" bgcolor="#FF9933" rowspan ="2">이미지</td>
+						<td>
+							<input type="hidden" name="originalFileName" value ="${article.imageFileName }"/>
+							<img src ="${contextPath}/download.do?imageFileName=${article.imageFileName}&articleNO=${article.articleNO}" id="preview"/>
+						</td>
+					</tr>
+					<tr class="tr_image_preview" style="display:none">
+						<td>
+							<input type="file" name="imageFileName" id="i_imageFileName" disabled onchange="readURL(this);"/>
+						</td>
+					</tr>
+				</c:otherwise>
+			</c:choose>
 				<tr>
 					<td align="center" bgcolor="#FF9933">
 						등록일자

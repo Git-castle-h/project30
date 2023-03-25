@@ -26,17 +26,16 @@
 		]]>
 	</select>
 	
+	<!-- 페이징기능을 위한 sql -->
 	<select id="selectPage" resultMap="articleResult" parameterType="java.util.Map"> 
  		<![CDATA[
 			SELECT * FROM( select ROWNUM as recNum,
-			LVL, articleNO
-			parentNO,title,
-			id, writeDate
-			 from (select LEVEL as LVL,
-			articleNO,parentNO,title,id,
-			writeDate from t_board 
-			START WITH parentNO=0  CONNECT BY PRIOR articleNO = parentNO
-			  ORDER SIBLINGS BY articleNO DESC))
+			LVL, articleNO,parentNO,title,id, writeDate
+			 from 	(select LEVEL as LVL,
+					articleNO,parentNO,title,id,writeDate 
+					from t_board 
+					START WITH parentNO=0  CONNECT BY PRIOR articleNO = parentNO
+				  	ORDER SIBLINGS BY articleNO DESC))
 			 where recNum between (#{section}-1)*100+(#{pageNum}-1)*10+1 and (#{section}-1)*100+#{pageNum}*10
  		]]>
  	</select>
@@ -47,11 +46,30 @@
 			VALUES (#{articleNO}, #{title}, #{content}, #{imageFileName}, #{id})
 		]]>
 	</insert>
+	<!-- ArticleNO 생성 -->
 	<select id="selectNewArticleNO" resultType="int">
 		<![CDATA[
 			SELECT nvl(max(articleNO),0)+1 from t_board
 		]]>
 	</select>
+	<!-- 글상세창 sql -->
+	<select id="selectArticle" resultType="articleVO" parameterType="int">
+		<![CDATA[
+			SELECT * from t_board
+			where articleNO = #{articleNO}
+		]]>
+	</select>
+	
+	<!-- 글 수정하기 -->
+	<update id="updateArticle" parameterType="java.util.Map">
+			update t_board
+			set title=#{title}
+			, content=#{content}
+			 <if test="imageFileName!='' and imageFileName!=null">
+			  , imageFileName=#{imageFileName}
+			</if>
+			where articleNO=#{articleNO}
+	</update>
 	
 	
 	

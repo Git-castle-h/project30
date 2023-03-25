@@ -1,6 +1,7 @@
 package com.myspring.pro30.board.controller;
 
 import java.io.File;
+import java.net.URI;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -19,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -34,7 +36,7 @@ import com.myspring.pro30.member.vo.MemberVO;
 public class BoardControllerImpl implements BoardController{
 	
 //	private static final String CURR_IMAGE_REPO_PATH = "C:\\board\\article_image";
-	private static final String ARTICLE_IMAGE_REPO = "C:\\board\\article_image";
+	private static final String ARTICLE_IMAGE_REPO = "D:\\eclipse\\eclipse_2021_06\\workspace\\pro30\\src\\main\\webapp\\resources\\uploadFile";
 	@Autowired
 	private BoardService boardService;
 	@Autowired
@@ -142,6 +144,98 @@ public class BoardControllerImpl implements BoardController{
 		return mav;
 	}
 	
+	
+	@Override
+	@RequestMapping(value="/viewArticle.do",method = {RequestMethod.GET})
+	public ModelAndView viewArticle (
+			@RequestParam("articleNO")int articleNO,
+			HttpServletRequest request,
+			HttpServletResponse response
+			)throws Exception{
+		String viewName = (String)request.getAttribute("viewName");
+		
+		articleVO = boardService.viewArticle(articleNO);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(viewName);
+		mav.addObject("article",articleVO);
+		return mav;
+	}
+	
+	
+	@Override
+	@RequestMapping(value="/modArticle.do", method= {RequestMethod.POST})
+	@ResponseBody
+	public ResponseEntity<String> modArticle(MultipartHttpServletRequest request, HttpServletResponse response)throws Exception {
+			
+		request.setCharacterEncoding("utf-8");
+		Map<String,Object> articleMap = new HashMap<String, Object>();
+		Enumeration enu = request.getParameterNames();
+		while(enu.hasMoreElements()) {
+			String name = (String)enu.nextElement();
+			String value = request.getParameter(name);
+			articleMap.put(name, value);
+		}
+		
+		String imageFileName = upload(request);
+		articleMap.put("imageFileName", imageFileName);
+		
+		URI location = null;
+		
+		String articleNO = (String)articleMap.get("articleNO");
+		String message;
+		ResponseEntity resEnt = null;
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		try {
+			boardService.modArticle(articleMap);
+			if(imageFileName != null && imageFileName.length()!=0) {
+				File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
+				File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO);
+				FileUtils.moveFileToDirectory(srcFile, destDir, true);
+				
+				String originalFileName = (String)articleMap.get("originalFileName");
+				File oldFile = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO+"\\"+originalFileName);
+				oldFile.delete();
+			}
+			      message = "<script>";
+				  message += " alert('수정이 완료되었습니다.');";
+				  message += " location.href='"+request.getContextPath()+"/board/viewArticle.do?articleNO="+articleNO+"';";
+				  message +=" </script>"
+				  		+ "왜안되는것일까 이것이";
+				  System.out.println(message);
+				  resEnt = ResponseEntity
+						  .created(location)
+						  .header("Content-Type", "text/html; charset=utf-8")
+						  .body(message);		
+
+		}catch(Exception e) {
+			e.printStackTrace();
+			File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
+			srcFile.delete();
+				message = "<script>";
+				message += " alert('오류발생');";
+			 	message += " location.href='"+request.getContextPath()+"/board/viewArticle.do?articleNO="+articleNO+"';";
+			 	message +=" </script>";
+			 	System.out.println(message);
+			 	resEnt = ResponseEntity
+			 			.created(location)
+			 			.header("Content-Type", "text/html; charset=utf-8")
+			 			.body(message);		
+		}
+		return resEnt;
+	}
+	
+	
+	@RequestMapping("/delMember")
+	public void delMember(HttpServletRequest request, HttpServletResponse response) {
+		
+		
+		
+	}
+	
+	
+	
+//	파일 업로드
 	private String upload(MultipartHttpServletRequest request)throws Exception{
 		String imageFileName = null;
 		Iterator<String> fileNames = request.getFileNames();
@@ -158,6 +252,8 @@ public class BoardControllerImpl implements BoardController{
 		}
 		return imageFileName;
 	}
+	
+	
 	
 	
 }

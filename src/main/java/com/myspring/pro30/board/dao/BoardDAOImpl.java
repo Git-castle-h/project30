@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.myspring.pro30.board.interfaces.BoardDAO;
@@ -39,8 +40,19 @@ public class BoardDAOImpl implements BoardDAO{
 		return articleNO;
 	};
 	
+	@Override
+	public ArticleVO selectArticle(int articleNO)throws Exception{
+		ArticleVO article =sqlSession.selectOne("mapper.board.selectArticle",articleNO);
+		return article;
+	};	
+	
 	private int selectNewArticleNO()throws Exception{
 		return sqlSession.selectOne("mapper.board.selectNewArticleNO");
+	}
+	
+	@Override
+	public void updateArticle(Map articleMap) throws DataAccessException {
+		sqlSession.update("mapper.board.updateArticle",articleMap);
 	}
 	
 }

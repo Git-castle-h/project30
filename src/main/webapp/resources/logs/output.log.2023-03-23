@@ -1,0 +1,65 @@
+[11:53:17][INFO ](ContextLoader.java:273)-Root WebApplicationContext: initialization started
+[11:53:17][INFO ](AbstractApplicationContext.java:495)-Refreshing Root WebApplicationContext: startup date [Thu Mar 23 11:53:17 KST 2023]; root of context hierarchy
+[11:53:17][INFO ](XmlBeanDefinitionReader.java:315)-Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/action-mybatis.xml]
+[11:53:17][INFO ](PropertiesLoaderSupport.java:177)-Loading properties file from ServletContext resource [/WEB-INF/config/jdbc/jdbc.properties]
+[11:53:17][DEBUG](UiApplicationContextUtils.java:85)-Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@7564f8dd]
+[11:53:17][INFO ](DefaultListableBeanFactory.java:557)-Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@17988a4d: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[11:53:17][DEBUG](Slf4jImpl.java:43)-Logging initialized using 'org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+[11:53:17][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[11:53:17][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[11:53:17][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[11:53:17][DEBUG](Slf4jImpl.java:43)-PooledDataSource forcefully closed/removed all connections.
+[11:53:17][INFO ](DefaultSingletonBeanRegistry.java:433)-Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@17988a4d: defining beans [propertyPlaceholderConfigurer,dataSource,sqlSessionFactory,sqlSession]; root of factory hierarchy
+[11:53:18][ERROR](ContextLoader.java:308)-Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in ServletContext resource [/WEB-INF/spring/action-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis/model/modelConfig.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberVO'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.myspring.pro30.member.vo.MemberVO
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1455)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:519)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:294)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:225)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:567)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:913)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:464)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:385)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:284)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:111)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4764)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5222)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3814)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:311)
+	at org.apache.catalina.core.StandardContext.backgroundProcess(StandardContext.java:5599)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1362)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1366)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1366)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1344)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.springframework.core.NestedIOException: Failed to parse config resource: class path resource [mybatis/model/modelConfig.xml]; nested exception is org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberVO'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.myspring.pro30.member.vo.MemberVO
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:380)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:295)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1514)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1452)
+	... 29 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing SQL Mapper Configuration. Cause: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberVO'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.myspring.pro30.member.vo.MemberVO
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:106)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parse(XMLConfigBuilder.java:89)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:374)
+	... 32 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error registering typeAlias for 'memberVO'. Cause: java.lang.ClassNotFoundException: Cannot find class: com.myspring.pro30.member.vo.MemberVO
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.typeAliasesElement(XMLConfigBuilder.java:127)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.parseConfiguration(XMLConfigBuilder.java:96)
+	... 34 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: com.myspring.pro30.member.vo.MemberVO
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:188)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:87)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:250)
+	at org.apache.ibatis.builder.xml.XMLConfigBuilder.typeAliasesElement(XMLConfigBuilder.java:120)
+	... 35 more

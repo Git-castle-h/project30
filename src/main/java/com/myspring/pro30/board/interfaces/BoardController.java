@@ -11,4 +11,6 @@ public interface BoardController{
 
 	ModelAndView listArticle(HttpServletRequest request, HttpServletResponse response)throws Exception;
 	ResponseEntity addArticle(MultipartHttpServletRequest multipartRequest, HttpServletResponse response)throws Exception;
+	ModelAndView viewArticle(int articleNO,HttpServletRequest request,HttpServletResponse response)throws Exception;
+	ResponseEntity modArticle(MultipartHttpServletRequest request, HttpServletResponse response)throws Exception;
 }

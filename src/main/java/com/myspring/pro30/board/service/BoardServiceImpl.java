@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.myspring.pro30.board.interfaces.BoardDAO;
 import com.myspring.pro30.board.interfaces.BoardService;
+import com.myspring.pro30.board.vo.ArticleVO;
 
 @Service("boardService")
 @Transactional(propagation = Propagation.REQUIRED)
@@ -32,6 +34,13 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.insertArticle(articleMap);
 	}
 	
+	@Override
+	public ArticleVO viewArticle(int articleNO) throws Exception{
+		return boardDAO.selectArticle(articleNO);
+	}
 	
-	
+	@Override
+	public void modArticle(Map articleMap)  throws DataAccessException {
+		boardDAO.updateArticle(articleMap);
+	}
 }
