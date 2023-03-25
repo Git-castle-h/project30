@@ -71,6 +71,17 @@
 			where articleNO=#{articleNO}
 	</update>
 	
+	<delete id="deleteArticle" parameterType="int">
+		<![CDATA[
+			delete from t_board
+			where articleNO in(
+				select articleNO from t_board
+				start with articleNO = #{articleNO}
+				connect by prior articleNO = parentNO
+			)
+		]]>
+	</delete>
+	
 	
 	
 </mapper>

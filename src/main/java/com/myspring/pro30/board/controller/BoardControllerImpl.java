@@ -178,9 +178,7 @@ public class BoardControllerImpl implements BoardController{
 		
 		String imageFileName = upload(request);
 		articleMap.put("imageFileName", imageFileName);
-		
-		URI location = null;
-		
+
 		String articleNO = (String)articleMap.get("articleNO");
 		String message;
 		ResponseEntity resEnt = null;
@@ -200,13 +198,9 @@ public class BoardControllerImpl implements BoardController{
 			      message = "<script>";
 				  message += " alert('수정이 완료되었습니다.');";
 				  message += " location.href='"+request.getContextPath()+"/board/viewArticle.do?articleNO="+articleNO+"';";
-				  message +=" </script>"
-				  		+ "왜안되는것일까 이것이";
+				  message +=" </script>";
 				  System.out.println(message);
-				  resEnt = ResponseEntity
-						  .created(location)
-						  .header("Content-Type", "text/html; charset=utf-8")
-						  .body(message);		
+					resEnt = new ResponseEntity(message,responseHeaders,HttpStatus.CREATED);
 
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -217,20 +211,48 @@ public class BoardControllerImpl implements BoardController{
 			 	message += " location.href='"+request.getContextPath()+"/board/viewArticle.do?articleNO="+articleNO+"';";
 			 	message +=" </script>";
 			 	System.out.println(message);
-			 	resEnt = ResponseEntity
-			 			.created(location)
-			 			.header("Content-Type", "text/html; charset=utf-8")
-			 			.body(message);		
+				resEnt = new ResponseEntity(message,responseHeaders,HttpStatus.CREATED);	
 		}
 		return resEnt;
 	}
 	
-	
-	@RequestMapping("/delMember")
-	public void delMember(HttpServletRequest request, HttpServletResponse response) {
+	@Override
+	@RequestMapping(value={"/removeArticle.do"},method= {RequestMethod.POST})
+	@ResponseBody
+	public ResponseEntity removeArticle(
+			@RequestParam("articleNO") int articleNO,
+			HttpServletRequest request, 
+			HttpServletResponse response)
+			throws Exception{
+		
+		String message;
+		ResponseEntity resEnt = null;
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+
+		try {
+			boardService.removeArticle(articleNO);
+			File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO);
+			FileUtils.deleteDirectory(destDir);
+			message = "<script>"
+					+ "alert('삭제되었습니다.');"
+					+ "location.href='"+request.getContextPath()+"/board/listArticle.do'"
+					+ "</script>";
+			
+			resEnt = new ResponseEntity(message,responseHeaders,HttpStatus.CREATED);
+			
+		}catch(Exception e) {
+			
+			message = "<script>"
+					+ "alert('오류발생.');"
+					+ "location.href='"+request.getContextPath()+"/board/listArticle.do'"
+					+ "</script>";
+			resEnt = new ResponseEntity(message,responseHeaders,HttpStatus.CREATED);
+			e.printStackTrace();
+		}
 		
 		
-		
+		return resEnt;
 	}
 	
 	

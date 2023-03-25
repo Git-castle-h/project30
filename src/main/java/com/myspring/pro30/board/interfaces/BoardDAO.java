@@ -14,5 +14,5 @@ public interface BoardDAO {
 	int insertArticle(Map articleMap)throws Exception;
 	ArticleVO selectArticle(int articleNO)throws Exception;	
 	void updateArticle(Map articleMap) throws DataAccessException ;
-	
+	void deleteArticle(int articleNO) throws DataAccessException ;
 }

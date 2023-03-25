@@ -43,4 +43,9 @@ public class BoardServiceImpl implements BoardService {
 	public void modArticle(Map articleMap)  throws DataAccessException {
 		boardDAO.updateArticle(articleMap);
 	}
+	
+	@Override
+	public void removeArticle(int articleNO) throws DataAccessException {
+		boardDAO.deleteArticle(articleNO);
+	}
 }

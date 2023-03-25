@@ -14,4 +14,5 @@ public interface BoardService {
 	int addArticle(Map articleMap)throws Exception;
 	ArticleVO viewArticle(int articleNO)throws Exception;
 	void modArticle(Map articleMap)throws DataAccessException;
+	void removeArticle(int articleNO) throws DataAccessException;
 }
