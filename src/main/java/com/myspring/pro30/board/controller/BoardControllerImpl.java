@@ -1,7 +1,7 @@
 package com.myspring.pro30.board.controller;
 
 import java.io.File;
-import java.net.URI;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -29,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myspring.pro30.board.interfaces.BoardController;
 import com.myspring.pro30.board.interfaces.BoardService;
 import com.myspring.pro30.board.vo.ArticleVO;
+import com.myspring.pro30.board.vo.ImageVO;
 import com.myspring.pro30.member.vo.MemberVO;
 
 @Controller("boardController")
@@ -83,6 +84,7 @@ public class BoardControllerImpl implements BoardController{
 				HttpServletResponse response
 			)throws Exception {
 		multipartRequest.setCharacterEncoding("utf-8");
+		String imageFileName = null;
 		Map<String,Object>articleMap = new HashMap<String,Object>();
 		Enumeration enu = multipartRequest.getParameterNames();
 		while (enu.hasMoreElements()) {
@@ -91,26 +93,45 @@ public class BoardControllerImpl implements BoardController{
 			articleMap.put(name,value);
 		}
 		
-		String imageFileName = upload(multipartRequest);
+
 		HttpSession session = multipartRequest.getSession();
 		MemberVO memberVO = (MemberVO) session.getAttribute("member");
 		String id = memberVO.getId();
 		articleMap.put("parentNO", 0);
 		articleMap.put("id", id);
-		articleMap.put("imageFileName", imageFileName);
+		
+		
+		List<String> fileList = upload(multipartRequest);
+		List<ImageVO> imageFileList = new ArrayList<ImageVO>();
+		
+		System.out.println(fileList.size());
+		System.out.println(imageFileList.size());
+		
+		if(fileList!= null && fileList.size()!=0) {
+			for(String fileName : fileList) {
+				ImageVO imageVO = new ImageVO();
+				imageVO.setImageFileName(fileName);
+				imageFileList.add(imageVO);
+			}
+			articleMap.put("imageFileList", imageFileList);
+		}
 		
 		String message;
 		ResponseEntity resEnt=null;
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		
+
+		
 		try {
 			int articleNO = boardService.addArticle(articleMap);
-			if(imageFileName != null && imageFileName.length() != 0) {
-				File srcFile = new 
-						File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
-				File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO);
-				FileUtils.moveFileToDirectory(srcFile, destDir, true);
+			if(imageFileList != null && imageFileList.size()!=0) {
+				for(ImageVO imageVO : imageFileList) {
+					imageFileName = imageVO.getImageFileName();
+					File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
+					File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO);
+					FileUtils.moveFileToDirectory(srcFile, destDir, true);
+				}
 			}
 			message = "<script>"
 					+ "alert('새글을 추가했습니다.');"
@@ -120,9 +141,15 @@ public class BoardControllerImpl implements BoardController{
 					+ "</script>";
 			resEnt = new ResponseEntity(message,responseHeaders, HttpStatus.CREATED);
 		}catch(Exception e) {
-			File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
-			srcFile.delete();
+			if(imageFileList != null && imageFileList.size()!=0) {
+				
+				for(ImageVO imageVO : imageFileList) {
+					imageFileName = imageVO.getImageFileName();
+					File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
+					srcFile.delete();
+				}
 			
+			}
 			message ="<script>"
 					+ "alert('오류가 발생했습니다. 다시 시도해주세요');"
 					+ "location.href='"
@@ -153,11 +180,10 @@ public class BoardControllerImpl implements BoardController{
 			HttpServletResponse response
 			)throws Exception{
 		String viewName = (String)request.getAttribute("viewName");
-		
-		articleVO = boardService.viewArticle(articleNO);
+		Map articleMap = boardService.viewArticle(articleNO);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
-		mav.addObject("article",articleVO);
+		mav.addObject("articleMap",articleMap);
 		return mav;
 	}
 	
@@ -169,6 +195,7 @@ public class BoardControllerImpl implements BoardController{
 			
 		request.setCharacterEncoding("utf-8");
 		Map<String,Object> articleMap = new HashMap<String, Object>();
+		String imageFileName = null;
 		Enumeration enu = request.getParameterNames();
 		while(enu.hasMoreElements()) {
 			String name = (String)enu.nextElement();
@@ -176,8 +203,17 @@ public class BoardControllerImpl implements BoardController{
 			articleMap.put(name, value);
 		}
 		
-		String imageFileName = upload(request);
-		articleMap.put("imageFileName", imageFileName);
+		List<String> fileList = upload(request);
+		List<ImageVO>imageFileList = new ArrayList<ImageVO>();
+		
+		if(fileList != null && fileList.size() != 0) {
+			for(String fileName: fileList) {
+				ImageVO imageVO = new ImageVO();
+				imageVO.setImageFileName(fileName);
+				imageFileList.add(imageVO);
+			}
+			articleMap.put("imageFileList", imageFileList);
+		}
 
 		String articleNO = (String)articleMap.get("articleNO");
 		String message;
@@ -186,14 +222,18 @@ public class BoardControllerImpl implements BoardController{
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		try {
 			boardService.modArticle(articleMap);
-			if(imageFileName != null && imageFileName.length()!=0) {
-				File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
-				File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO);
-				FileUtils.moveFileToDirectory(srcFile, destDir, true);
+			if(imageFileList != null && imageFileList.size()!=0) {
 				
-				String originalFileName = (String)articleMap.get("originalFileName");
-				File oldFile = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO+"\\"+originalFileName);
-				oldFile.delete();
+				for(ImageVO imageVO: imageFileList) {
+					imageFileName = imageVO.getImageFileName();
+					File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
+					File destDir = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO);
+					FileUtils.moveFileToDirectory(srcFile, destDir, true);
+					
+					String originalFileName = (String)articleMap.get("originalFileName");
+					File oldFile = new File(ARTICLE_IMAGE_REPO+"\\"+articleNO+"\\"+originalFileName);
+					oldFile.delete();
+				}
 			}
 			      message = "<script>";
 				  message += " alert('수정이 완료되었습니다.');";
@@ -203,15 +243,20 @@ public class BoardControllerImpl implements BoardController{
 					resEnt = new ResponseEntity(message,responseHeaders,HttpStatus.CREATED);
 
 		}catch(Exception e) {
-			e.printStackTrace();
-			File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
-			srcFile.delete();
+			if(imageFileList != null && imageFileList.size()!=0) {
+				for(ImageVO imageVO : imageFileList) {
+					imageFileName = imageVO.getImageFileName();
+					File srcFile = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName);
+					srcFile.delete();
+				}
+			}
 				message = "<script>";
 				message += " alert('오류발생');";
 			 	message += " location.href='"+request.getContextPath()+"/board/viewArticle.do?articleNO="+articleNO+"';";
 			 	message +=" </script>";
 			 	System.out.println(message);
-				resEnt = new ResponseEntity(message,responseHeaders,HttpStatus.CREATED);	
+				resEnt = new ResponseEntity(message,responseHeaders,HttpStatus.CREATED);
+			e.printStackTrace();
 		}
 		return resEnt;
 	}
@@ -258,21 +303,27 @@ public class BoardControllerImpl implements BoardController{
 	
 	
 //	파일 업로드
-	private String upload(MultipartHttpServletRequest request)throws Exception{
-		String imageFileName = null;
+	private List<String> upload(MultipartHttpServletRequest request)throws Exception{
+		List<String> fileList = new ArrayList<String>();
 		Iterator<String> fileNames = request.getFileNames();
 		while(fileNames.hasNext()) {
+			
 			String fileName = fileNames.next();
 			MultipartFile mFile = request.getFile(fileName);
-			imageFileName = mFile.getOriginalFilename();
+			String originalFileName = mFile.getOriginalFilename();
+			if(originalFileName!=null && originalFileName !=""){
+			fileList.add(originalFileName);
+			}
 			File file = new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+fileName);
 			if(mFile.getSize()!=0) {
+				if(!file.exists()) {
 				file.getParentFile().mkdirs();
-				mFile.transferTo(new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+imageFileName));
+				mFile.transferTo(new File(ARTICLE_IMAGE_REPO+"\\"+"temp"+"\\"+originalFileName));
+				}
 			}
 			
 		}
-		return imageFileName;
+		return fileList;
 	}
 	
 	
